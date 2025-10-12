@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | Neural Networks: The Digital Brain Revolution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #6c63ff;
+            --secondary: #4a44c9;
+            --accent: #ff6b6b;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #6c63ff 0%, #4a44c9 100%);
+        }
+
+        body {
+            background-color: #0f0f23;
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), 
+                        url('neuro2.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #a5b4fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .article-nav {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .article-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .article-nav li {
+            margin: 0 1rem;
+        }
+
+        .article-nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .article-nav a:hover {
+            color: var(--primary);
+        }
+
+        .article-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .article-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Article Sections */
+        .article-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .text-content {
+            padding-right: 1rem;
+        }
+
+        .text-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .text-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .image-content {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .image-content:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-content:hover .image-caption {
+            opacity: 1;
+        }
+
+        /* Interactive Neural Network */
+        .interactive-neural {
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neural-canvas {
+            width: 100%;
+            height: 300px;
+            background: rgba(10, 10, 20, 0.8);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .neuron {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .neuron:hover {
+            transform: scale(1.2);
+            background: var(--accent);
+        }
+
+        .neuron-connection {
+            position: absolute;
+            height: 3px;
+            background: rgba(108, 99, 255, 0.5);
+            transform-origin: 0 0;
+            z-index: 5;
+        }
+
+        .neuron-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background: rgba(108, 99, 255, 0.2);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--dark);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+        }
+
+        /* Applications Grid */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .application-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .application-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .app-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .app-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .application-card:hover .app-image img {
+            transform: scale(1.1);
+        }
+
+        .app-content {
+            padding: 1.5rem;
+        }
+
+        .app-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), 
+                        url('tech-6b.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .article-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .article-nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Neural Networks: The Digital Brain Revolution</h1>
+                <p>Exploring the architecture, functionality, and impact of artificial neural networks that mimic the human brain to solve complex problems.</p>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <!-- Introduction Section -->
+    <section id="intro" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Are Neural Networks?</h2>
+                <p>Understanding the basic concept of artificial neural networks</p>
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Mimicking the Human Brain</h3>
+                    <p>Neural networks are computing systems inspired by the biological neural networks that constitute animal brains. These systems "learn" to perform tasks by considering examples, generally without being programmed with task-specific rules.</p>
+                    <p>Just like our brains consist of interconnected neurons, artificial neural networks consist of nodes (artificial neurons) connected together. These connections have weights that adjust as learning proceeds, strengthening or weakening the signal between neurons.</p>
+                    <p>The real power of neural networks lies in their ability to recognize patterns and relationships in data that are too complex for humans to detect or for traditional algorithms to process effectively.</p>
+                </div>
+                <div class="image-content">
+                    <img src="neuro1.jpg" alt="Neural Network Visualization">
+                    <div class="image-caption">Visualization of an artificial neural network with multiple layers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How They Work Section -->
+    <section id="how-they-work" class="article-section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Neural Networks Work</h2>
+                <p>The architecture and learning process of neural networks</p>
+            </div>
+            <div class="content-grid">
+                <div class="image-content">
+                    <img src="n2.jpg" alt="Neural Network Layers">
+                    <div class="image-caption">Input, hidden, and output layers of a neural network</div>
+                </div>
+                <div class="text-content">
+                    <h3>Basic Architecture</h3>
+                    <p>At its simplest, a neural network consists of three types of layers:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li><strong>Input Layer:</strong> Receives the initial data</li>
+                        <li><strong>Hidden Layers:</strong> Process the data through weighted connections</li>
+                        <li><strong>Output Layer:</strong> Produces the final result or prediction</li>
+                    </ul>
+                    <p>Each neuron in a layer is connected to neurons in the next layer, and each connection has an associated weight. During training, these weights are adjusted to minimize the difference between the network's predictions and the actual outcomes.</p>
+                    
+                    <h3>Interactive Neural Network</h3>
+                    <p>Click on the neurons below to see how they process information:</p>
+                    <div class="interactive-neural">
+                        <div class="neural-canvas" id="neuralCanvas">
+                            <!-- Neurons and connections will be added by JavaScript -->
+                        </div>
+                        <div class="neuron-info" id="neuronInfo">
+                            <h4>Neuron Information</h4>
+                            <p>Click on a neuron to see details about its function.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of Neural Networks -->
+    <section id="types" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Types of Neural Networks</h2>
+                <p>Different architectures for different applications</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Feedforward Neural Networks</h3>
+                    <p>The simplest type of neural network where information travels in one direction only—from input to output. There are no cycles or loops in the network.</p>
+                    <p>These are commonly used for pattern recognition and classification tasks where the input data has a fixed size.</p>
+                    
+                    <h3>Convolutional Neural Networks (CNNs)</h3>
+                    <p>Specially designed for processing grid-like data such as images. CNNs use convolutional layers that apply filters to input data to detect features like edges, shapes, and textures.</p>
+                    <p>They have revolutionized computer vision and are used in image recognition, object detection, and even medical image analysis.</p>
+                </div>
+                <div class="image-content">
+                    <img src="n3.jpg" alt="CNN Visualization">
+                    <div class="image-caption">Convolutional Neural Network processing an image</div>
+                </div>
+            </div>
+            
+            <div class="content-grid" style="margin-top: 3rem;">
+                <div class="image-content">
+                    <img src="n4.jpg" alt="RNN Visualization">
+                    <div class="image-caption">Recurrent Neural Network with feedback connections</div>
+                </div>
+                <div class="text-content">
+                    <h3>Recurrent Neural Networks (RNNs)</h3>
+                    <p>Designed for sequential data where the order matters, such as time series, speech, or text. RNNs have connections that form cycles, allowing information to persist.</p>
+                    <p>This architecture enables the network to maintain a "memory" of previous inputs, making them ideal for tasks like language modeling and speech recognition.</p>
+                    
+                    <h3>Generative Adversarial Networks (GANs)</h3>
+                    <p>Consist of two neural networks—a generator and a discriminator—that compete against each other. The generator creates fake data, and the discriminator tries to distinguish real from fake.</p>
+                    <p>GANs have been used to create remarkably realistic images, videos, and even music.</p>
+                </div>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Network Type</th>
+                        <th>Best For</th>
+                        <th>Key Features</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Feedforward NN</td>
+                        <td>Classification, Pattern Recognition</td>
+                        <td>Simple, One-directional flow</td>
+                        <td>Handwriting recognition, Spam detection</td>
+                    </tr>
+                    <tr>
+                        <td>Convolutional NN</td>
+                        <td>Image Processing, Computer Vision</td>
+                        <td>Uses filters, Spatial hierarchy</td>
+                        <td>Facial recognition, Medical imaging</td>
+                    </tr>
+                    <tr>
+                        <td>Recurrent NN</td>
+                        <td>Time Series, Sequences</td>
+                        <td>Memory, Feedback connections</td>
+                        <td>Speech recognition, Language translation</td>
+                    </tr>
+                    <tr>
+                        <td>GANs</td>
+                        <td>Content Generation</td>
+                        <td>Two networks competing</td>
+                        <td>Image generation, Deepfakes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="article-section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2>History of Neural Networks</h2>
+                <p>From early concepts to modern breakthroughs</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1943: McCulloch-Pitts Neuron</h3>
+                        <p>Warren McCulloch and Walter Pitts created the first mathematical model of a neural network, proposing that neurons could implement logical functions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1958: Perceptron</h3>
+                        <p>Frank Rosenblatt invented the perceptron, the first algorithm that could learn from data. This marked the beginning of practical neural networks.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1969: Limitations Recognized</h3>
+                        <p>Marvin Minsky and Seymour Papert highlighted the limitations of single-layer perceptrons, leading to reduced interest and funding (the first "AI winter").</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1986: Backpropagation</h3>
+                        <p>The backpropagation algorithm was popularized, enabling efficient training of multi-layer networks and reviving interest in neural networks.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2012: AlexNet Breakthrough</h3>
+                        <p>AlexNet significantly outperformed traditional methods in the ImageNet competition, sparking the deep learning revolution.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Present: Widespread Adoption</h3>
+                        <p>Neural networks now power countless applications from voice assistants to medical diagnosis, with ongoing research pushing boundaries further.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real-World Applications</h2>
+                <p>How neural networks are transforming industries</p>
+            </div>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="n5.jpg" alt="Autonomous Vehicles">
+                    </div>
+                    <div class="app-content">
+                        <h3>Autonomous Vehicles</h3>
+                        <p>Neural networks process sensor data to recognize objects, predict movements, and make driving decisions in real-time.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="n6.jpeg" alt="Medical Diagnosis">
+                    </div>
+                    <div class="app-content">
+                        <h3>Medical Diagnosis</h3>
+                        <p>Neural networks analyze medical images to detect diseases like cancer with accuracy rivaling human experts.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="n8.jpeg" alt="Natural Language Processing">
+                    </div>
+                    <div class="app-content">
+                        <h3>Natural Language Processing</h3>
+                        <p>Powering virtual assistants, translation services, and sentiment analysis through understanding of human language.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="n7.jpeg" alt="Financial Forecasting">
+                    </div>
+                    <div class="app-content">
+                        <h3>Financial Forecasting</h3>
+                        <p>Analyzing market patterns to predict stock prices, detect fraud, and assess credit risk more accurately.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future" class="article-section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Future of Neural Networks</h2>
+                <p>Where is this technology heading?</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Explainable AI</h3>
+                    <p>As neural networks become more complex, there's a growing need to understand how they make decisions. Explainable AI aims to make neural network decisions transparent and interpretable.</p>
+                    
+                    <h3>Neuromorphic Computing</h3>
+                    <p>Hardware designed to mimic the brain's architecture, potentially making neural networks thousands of times more efficient than current implementations.</p>
+                    
+                    <h3>Lifelong Learning</h3>
+                    <p>Current neural networks often suffer from "catastrophic forgetting" when learning new tasks. Future systems will continuously learn without forgetting previous knowledge.</p>
+                    
+                    <h3>Brain-Computer Interfaces</h3>
+                    <p>Neural networks could eventually enable direct communication between brains and computers, revolutionizing how we interact with technology.</p>
+                </div>
+                <div class="image-content">
+                    <img src="n9.jpeg" alt="Future of AI">
+                    <div class="image-caption">Conceptual visualization of future neural network applications</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Neural Networks</h3>
+                    <p>Exploring the fascinating world of artificial intelligence and neural networks.</p>
+                    
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#how-they-work">How They Work</a></li>
+                        <li><a href="#types">Types of NNs</a></li>
+                        <li><a href="#history">History</a></li>
+                        <li><a href="#applications">Applications</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            <div class="copyright">
+                <p>&copy; 2020-2025 incognito. All rights reserved. | Created with</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive Neural Network
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('neuralCanvas');
+            const info = document.getElementById('neuronInfo');
+            
+            // Create a simple neural network visualization
+            const layers = [4, 5, 4, 3]; // Number of neurons in each layer
+            const neurons = [];
+            const connections = [];
+            
+            const width = canvas.offsetWidth;
+            const height = canvas.offsetHeight;
+            
+            // Create neurons
+            layers.forEach((layerSize, layerIndex) => {
+                const layerNeurons = [];
+                const layerWidth = width / (layers.length + 1);
+                const x = layerWidth * (layerIndex + 1);
+                
+                for (let i = 0; i < layerSize; i++) {
+                    const y = height / (layerSize + 1) * (i + 1);
+                    const neuron = document.createElement('div');
+                    neuron.className = 'neuron';
+                    neuron.style.left = `${x - 15}px`;
+                    neuron.style.top = `${y - 15}px`;
+                    neuron.textContent = i + 1;
+                    neuron.setAttribute('data-layer', layerIndex);
+                    neuron.setAttribute('data-neuron', i);
+                    
+                    neuron.addEventListener('click', function() {
+                        const layer = parseInt(this.getAttribute('data-layer'));
+                        const neuronIndex = parseInt(this.getAttribute('data-neuron'));
+                        
+                        let infoText = '';
+                        if (layer === 0) {
+                            infoText = `<h4>Input Neuron ${neuronIndex + 1}</h4><p>This neuron receives raw input data. In image recognition, each input neuron might represent a pixel's intensity.</p>`;
+                        } else if (layer === layers.length - 1) {
+                            infoText = `<h4>Output Neuron ${neuronIndex + 1}</h4><p>This neuron produces the final output. In classification, each output neuron might represent the probability of a specific class.</p>`;
+                        } else {
+                            infoText = `<h4>Hidden Layer Neuron</h4><p>This neuron in hidden layer ${layer} processes information from previous layers and passes it forward. It detects complex patterns in the data.</p>`;
+                        }
+                        
+                        info.innerHTML = infoText;
+                        info.style.display = 'block';
+                    });
+                    
+                    canvas.appendChild(neuron);
+                    layerNeurons.push({x, y, element: neuron});
+                }
+                
+                neurons.push(layerNeurons);
+            });
+            
+            // Create connections between neurons
+            for (let layerIndex = 0; layerIndex < layers.length - 1; layerIndex++) {
+                const currentLayer = neurons[layerIndex];
+                const nextLayer = neurons[layerIndex + 1];
+                
+                currentLayer.forEach((neuron, i) => {
+                    nextLayer.forEach((nextNeuron, j) => {
+                        const connection = document.createElement('div');
+                        connection.className = 'neuron-connection';
+                        
+                        const dx = nextNeuron.x - neuron.x;
+                        const dy = nextNeuron.y - neuron.y;
+                        const length = Math.sqrt(dx * dx + dy * dy);
+                        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+                        
+                        connection.style.width = `${length}px`;
+                        connection.style.left = `${neuron.x}px`;
+                        connection.style.top = `${neuron.y}px`;
+                        connection.style.transform = `rotate(${angle}deg)`;
+                        
+                        canvas.appendChild(connection);
+                        connections.push(connection);
+                    });
+                });
+            }
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('.article-nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            document.querySelectorAll('.content-grid, .application-card, .timeline-item').forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s, transform 0.5s';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | Business resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: black;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .search-bar input {
+            padding: 15px 20px;
+            width: 100%;
+            max-width: 500px;
+            border: 2px solid #ddd;
+            border-radius: 50px 0 0 50px;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .search-bar button {
+            padding: 15px 25px;
+            background: #6a11cb;
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+        
+        .search-bar button:hover {
+            background: #2575fc;
+        }
+        
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-thumbnail {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            color: white;
+            opacity: 0.8;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s;
+        }
+
+        .header-1{
+            background-image: url(https://drive.google.com/file/d/1EgDNVZraufFyfbq3NGqs4TMpfKuo3Icy/view?usp=sharing);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        
+        .video-card:hover .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-content {
+            padding: 25px;
+        }
+        
+        .video-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .video-content p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .questions-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        .questions-section h4 {
+            color: #6a11cb;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .question-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .question-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #2575fc;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .question-link:hover {
+            background: #2575fc;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .question-link i {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .video-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .video-link {
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .video-link:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .duration {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            color: #2c3e50;
+            border-radius: 15px;
+            margin-top: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .category-btn {
+            padding: 12px 25px;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: #6a11cb;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .search-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .search-bar input {
+                border-radius: 50px;
+                margin-bottom: 10px;
+            }
+            
+            .search-bar button {
+                border-radius: 50px;
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header-1">
+            <h1>Business Resources</h1>
+            <p class="tagline">Explore our curated collection of selected educational Bussiness videos with related questions and hints</p>
+            
+            
+        </header>
+        
+        <div class="videos-grid">
+            <!-- Video 1 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="shot1.png" alt="JavaScript Fundamentals">
+                    <a href="https://www.youtube.com/watch?v=69dLyztc-As&t=185s&pp=ygUPYnVzaW5lc3MgY291cnNl0gcJCbIJAYcqIYzv"><div class="play-icon"><i class="fas fa-play-circle"></i></div></a>
+                </div>
+                <div class="video-content">
+                    
+                        <h3>The Basics of Business Education</h3>
+                    <p>Presentation at Dong-A university that every business student in the world must watch. 
+                        What a business education iss about.
+                    </p>
+                    <div class="questions-section">
+                        <h4><i class="fas fa-question-circle"></i> Related Questions & Hints</h4>
+                        <div class="question-links">
+                            <a href="art/qnh1.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> Do I have what it takes to be an entrepreneur?
+                            </a>
+                            <a href="art/qnh2.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> How much money do I need to start a business?
+                            </a>
+                            <a href="art/qnh3.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> Should I pursue a business idea alone or find partners?
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-footer">
+                        <a href="https://www.youtube.com/watch?v=69dLyztc-As&t=185s&pp=ygUPYnVzaW5lc3MgY291cnNl0gcJCbIJAYcqIYzv" class="video-link"><i class="fab fa-youtube"></i> Watch Video</a>
+                        <span class="duration"><i class="far fa-clock"></i> 57:06</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 2 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="images/shot2.png" alt="React Tutorial">
+                    <a href="https://www.youtube.com/watch?v=eHJnEHyyN1Y&pp=ygUNYnVzaW5lc3MgdGFsaw%3D%3D">
+                    <div class="play-icon"><i class="fas fa-play-circle"></i></div></a>
+                </div>
+                <div class="video-content">
+                    <h3>6 Tips on Being a Successful Entrepreneur</h3>
+                    <p>Sometimes we need to break the rules to innovate...But which ones?</p>
+                    
+                    <div class="questions-section">
+                        <h4><i class="fas fa-question-circle"></i> Related Questions & Hints</h4>
+                        <div class="question-links">
+                            <a href="art/qnh4.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> How to Manage Cash Flow Effectively?
+                            </a>
+                            <a href="art/qnh5.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> When should you seek investors or take out a loan for your business?
+                            </a>
+                            <a href="art/qnh6.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> What are the tax implications of my business structure?
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-footer">
+                        <a href="https://www.youtube.com/watch?v=eHJnEHyyN1Y&pp=ygUNYnVzaW5lc3MgdGFsaw%3D%3D" class="video-link"><i class="fab fa-youtube"></i> Watch Video</a>
+                        <span class="duration"><i class="far fa-clock"></i> 15:20</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 3 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="images/shot3.png" alt="Python Programming">
+                    <a href="https://www.youtube.com/watch?v=MN7yfV4UuCI&pp=ygUoaW1wb3J0YW5jZSBvZiBwdXR0dGluZyBhIGJ1c2luZXNzIG9ubGluZQ%3D%3D">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div></a>
+                </div>
+                <div class="video-content">
+                    <h3>How To Build A Business That Works</h3>
+                    <p>Learn how to Build your own business and make it work.</p>
+                    
+                    <div class="questions-section">
+                        <h4><i class="fas fa-question-circle"></i> Related Questions & Hints</h4>
+                        <div class="question-links">
+                            <a href="art/qnh7.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> how to differentiate your business?
+                            </a>
+                            <a href="art/qnh8.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> How can I attract my first customers cost-effectively?
+                            </a>
+                            <a href="art/qnh9.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> When Should I Hire My First Employee?
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-footer">
+                        <a href="https://www.youtube.com/watch?v=MN7yfV4UuCI&pp=ygUoaW1wb3J0YW5jZSBvZiBwdXR0dGluZyBhIGJ1c2luZXNzIG9ubGluZQ%3D%3D" class="video-link"><i class="fab fa-youtube"></i> Watch Video</a>
+                        <span class="duration"><i class="far fa-clock"></i> 49:43</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 4 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="images/shot4.png" alt="Digital Marketing">
+                    <a href="https://www.youtube.com/watch?v=Dk9mcJtIuCs&pp=ygUoaW1wb3J0YW5jZSBvZiBwdXR0dGluZyBhIGJ1c2luZXNzIG9ubGluZQ%3D%3D">
+
+                    <div class="play-icon"><i class="fas fa-play-circle"></i></div></a>
+                </div>
+                <div class="video-content">
+                    <h3>15 Business Books Everyone Should Read</h3>
+                    <p>Books that will provide you with the knowledge you need in any business</p>
+                    
+                    <div class="questions-section">
+                        <h4><i class="fas fa-question-circle"></i> Related Questions & Hints</h4>
+                        <div class="question-links">
+                            <a href="art/qnh10.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> How to Price Your Products/Services?
+                            </a>
+                            <a href="art/qnh11.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> What's the most effective marketing strategy for my business?
+                            </a>
+                            <a href="art/qnh12.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> How much should I reinvest in the business versus taking as profit?
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-footer">
+                        <a href="https://www.youtube.com/watch?v=Dk9mcJtIuCs&pp=ygUoaW1wb3J0YW5jZSBvZiBwdXR0dGluZyBhIGJ1c2luZXNzIG9ubGluZQ%3D%3D" class="video-link"><i class="fab fa-youtube"></i> Watch Video</a>
+                        <span class="duration"><i class="far fa-clock"></i> 12:03</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 5 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="images/shot5.png" alt="UI/UX Design">
+                    <a href="https://www.youtube.com/watch?v=-y4swMaeJeI&pp=ygUbYnVzaW5lc3MgQUkgdG9vbHMgZXhwbGFpbmVk">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div></a>
+                </div>
+                <div class="video-content">
+                    <h3>AI Tools for small Business</h3>
+                    <p>Wrk smart, 7 Ways Small businesses can use AI Today</p>
+                    
+                    <div class="questions-section">
+                        <h4><i class="fas fa-question-circle"></i> Related Questions & Hints</h4>
+                        <div class="question-links">
+                            <a href="art/qnh18.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> Do I need to hire expensive AI experts, or can I use existing tools and my current team?
+                            </a>
+                            <a href="art/qnh17.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> How can I use AI to automate routine tasks without losing the human touch that my customers value?
+                            </a>
+                            <a href="art/qnh16.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> Where exactly in my business can AI have the biggest and most immediate impact?
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-footer">
+                        <a href="https://www.youtube.com/watch?v=-y4swMaeJeI&pp=ygUbYnVzaW5lc3MgQUkgdG9vbHMgZXhwbGFpbmVk" class="video-link"><i class="fab fa-youtube"></i> Watch Video</a>
+                        <span class="duration"><i class="far fa-clock"></i> 12:58</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video 6 -->
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="images/shot6.png" alt="Cloud Computing">
+                    <a href="https://www.youtube.com/watch?v=9VlvbpXwLJs&pp=ygUIYnVzaW5lc3M%3D">
+                        <div class="play-icon"><i class="fas fa-play-circle"></i></div></a>
+                </div>
+                <div class="video-content">
+                    <h3>30 Years of Business Knowledge in 2hrs 26mins</h3>
+                    <p>The experience of 30 yeras in the business field all explained in one video</p>
+                    
+                    <div class="questions-section">
+                        <h4><i class="fas fa-question-circle"></i> Related Questions & Hints</h4>
+                        <div class="question-links">
+                            <a href="art/qnh14.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> What skills do I need to develop to grow as a leader?
+                            </a>
+                            <a href="art/qnh15.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> When should I pivot my business strategy?
+                            </a>
+                            <a href="art/qnh13.html" class="question-link">
+                                <i class="fas fa-lightbulb"></i> SHow do I maintain work-life balance as a business owner?
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="video-footer">
+                        <a href="https://www.youtube.com/watch?v=9VlvbpXwLJs&pp=ygUIYnVzaW5lc3M%3D" class="video-link"><i class="fab fa-youtube"></i> Watch Video</a>
+                        <span class="duration"><i class="far fa-clock"></i> 2:26:13</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            
+            <p>&copy; 2020-2025 incognito. All rights reserved.</p>
+            
+        </footer>
+    </div>
+
+    <script>
+        // Simple category filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // In a real implementation, you would filter videos here
+                    // For this example, we'll just log the category
+                    console.log('Selected category: ', this.textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

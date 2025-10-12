@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reinvestment vs. Profit | Business Finance Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            line-height: 1.7;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            margin: 25px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-btn:hover {
+            background: #4a6cf7;
+            transform: translateX(-5px);
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 30px 60px;
+            background: linear-gradient(120deg, #2c3e50 0%, #4a6cf7 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 30px;
+        }
+        
+        .meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .article-content {
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #4a6cf7;
+            border-radius: 4px;
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin: 50px 0 20px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin: 35px 0 15px;
+            color: #4a6cf7;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f8f9fa 0%, #e8f4fc 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .factor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .factor-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #4a6cf7;
+            transition: transform 0.3s;
+        }
+        
+        .factor-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .factor-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .factor-card h4 i {
+            color: #4a6cf7;
+        }
+        
+        .assessment {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            margin: 50px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eaeaea;
+        }
+        
+        .assessment h3 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .assessment-list {
+            list-style-type: none;
+        }
+        
+        .assessment-list li {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .assessment-list li:before {
+            content: '?';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            background: #4a6cf7;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        blockquote {
+            font-style: italic;
+            margin: 40px 0;
+            padding: 40px;
+            background: linear-gradient(120deg, #2c3e50 0%, #4a6cf7 100%);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        blockquote:before {
+            content: '"';
+            font-size: 80px;
+            color: rgba(255, 255, 255, 0.2);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: serif;
+        }
+        
+        blockquote p {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        cite {
+            display: block;
+            text-align: right;
+            font-style: normal;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+        
+        .conclusion {
+            background: #f8f9fa;
+            padding: 50px;
+            border-radius: 12px;
+            margin: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .conclusion h2 {
+            border: none;
+            margin-bottom: 30px;
+        }
+        
+        .calculator {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin: 40px 0;
+        }
+        
+        .calculator h3 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .calc-item {
+            margin-bottom: 20px;
+        }
+        
+        .calc-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .calc-item input, .calc-item select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        
+        .calc-result {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #4a6cf7;
+        }
+        
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .strategy-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #4a6cf7;
+        }
+        
+        .strategy-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .warning-box h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .tip-box h4 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .steps {
+            list-style-type: none;
+            counter-reset: step-counter;
+        }
+        
+        .steps li {
+            margin-bottom: 30px;
+            padding-left: 70px;
+            position: relative;
+            min-height: 50px;
+        }
+        
+        .steps li:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: #4a6cf7;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .visualization {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .reinvest-visual {
+            height: 100%;
+            background: #4a6cf7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .profit-visual {
+            height: 100%;
+            background: #4caf50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .article-content {
+                padding: 30px;
+            }
+            
+            .factor-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            blockquote {
+                padding: 25px;
+            }
+            
+            blockquote p {
+                font-size: 1.2rem;
+            }
+            
+            .steps li {
+                padding-left: 60px;
+            }
+            
+            .steps li:before {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .strategy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Previous Page
+        </a>
+        
+        <header>
+            <div class="header-content">
+                <h1>Reinvestment vs. Profit</h1>
+                <p class="subtitle">Finding the right balance between growing your business and rewarding yourself</p>
+                
+                
+            </div>
+        </header>
+        
+        <div class="article-content">
+            <div class="intro">
+                <p>One of the most challenging decisions for business owners is determining how much profit to reinvest in the business versus taking as personal income. This balance affects both your company's growth potential and your personal financial wellbeing. This guide will help you make informed decisions about this critical financial balancing act.</p>
+            </div>
+            
+            <h2>Why the Reinvestment vs. Profit Decision Matters</h2>
+            <p>Finding the right balance between reinvestment and profit-taking impacts your business's growth trajectory, your personal finances, and your long-term business sustainability. Too much reinvestment can strain your personal finances, while too little can stunt your business's growth.</p>
+            
+            <div class="highlight">
+                <h3>Key Insight</h3>
+                <p>The optimal reinvestment rate varies by industry, business stage, growth goals, and personal financial needs. There's no one-size-fits-all answer, but there are principles that can guide your decision-making.</p>
+            </div>
+            
+            <h2>Factors That Influence Your Reinvestment Decision</h2>
+            <p>These elements should guide how you allocate profits between reinvestment and personal income:</p>
+            
+            <div class="factor-grid">
+                <div class="factor-card">
+                    <h4><i class="fas fa-chart-line"></i> Business Stage</h4>
+                    <p>Early-stage businesses typically require higher reinvestment rates (70-100%) while established businesses might reinvest 20-50% of profits.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <h4><i class="fas fa-bullseye"></i> Growth Goals</h4>
+                    <p>Aggressive growth plans require more reinvestment. If you're content with maintaining current operations, you can take more profit.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <h4><i class="fas fa-industry"></i> Industry Norms</h4>
+                    <p>Capital-intensive industries often require higher reinvestment rates. Service businesses may require less reinvestment.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <h4><i class="fas fa-money-bill-wave"></i> Personal Financial Needs</h4>
+                    <p>Your personal living expenses and financial goals will influence how much profit you need to take from the business.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <h4><i class="fas fa-exclamation-circle"></i> Debt Obligations</h4>
+                    <p>Businesses with significant debt may need to allocate more profit to debt reduction rather than growth initiatives.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <h4><i class="fas fa-piggy-bank"></i> Cash Reserves</h4>
+                    <p>Businesses with healthy cash reserves can often take more profit, while those with thin buffers should reinvest more.</p>
+                </div>
+            </div>
+            
+            <blockquote>
+                <p>"Do not save what is left after spending, but spend what is left after saving."</p>
+                <cite>Warren Buffett, Investor</cite>
+            </blockquote>
+            
+            <h2>Reinvestment Calculator</h2>
+            <p>Use this calculator to determine a suggested reinvestment percentage based on your business characteristics:</p>
+            
+            <div class="calculator">
+                <h3>Reinvestment Rate Calculator</h3>
+                
+                <div class="calc-item">
+                    <label for="business-age">How long has your business been operating?</label>
+                    <select id="business-age">
+                        <option value="">Select business age</option>
+                        <option value="startup">Less than 2 years (Startup)</option>
+                        <option value="growing">2-5 years (Growing)</option>
+                        <option value="established">5-10 years (Established)</option>
+                        <option value="mature">10+ years (Mature)</option>
+                    </select>
+                </div>
+                
+                <div class="calc-item">
+                    <label for="growth-goal">What is your primary growth goal?</label>
+                    <select id="growth-goal">
+                        <option value="">Select growth goal</option>
+                        <option value="aggressive">Aggressive expansion</option>
+                        <option value="moderate">Steady growth</option>
+                        <option value="maintain">Maintain current operations</option>
+                        <option value="prepare-exit">Prepare for sale/exit</option>
+                    </select>
+                </div>
+                
+                <div class="calc-item">
+                    <label for="industry">What type of industry are you in?</label>
+                    <select id="industry">
+                        <option value="">Select industry type</option>
+                        <option value="tech">Technology/SaaS</option>
+                        <option value="service">Professional Services</option>
+                        <option value="retail">Retail/E-commerce</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="restaurant">Restaurant/Food Service</option>
+                    </select>
+                </div>
+                
+                <div class="calc-item">
+                    <label for="profit-margin">What is your approximate net profit margin?</label>
+                    <select id="profit-margin">
+                        <option value="">Select profit margin</option>
+                        <option value="low">Less than 10%</option>
+                        <option value="medium">10-20%</option>
+                        <option value="high">20%+</option>
+                    </select>
+                </div>
+                
+                <button onclick="calculateReinvestment()" style="width: 100%; padding: 15px; background: #4a6cf7; color: white; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer; margin-top: 20px;">Calculate Suggested Reinvestment</button>
+                
+                <div class="calc-result" id="reinvestment-result">
+                    Your suggested reinvestment rate will appear here
+                </div>
+                
+                <div class="visualization" id="reinvestment-visual" style="display: none;">
+                    <div class="reinvest-visual" id="reinvest-visual-bar" style="width: 50%;">Reinvest: 50%</div>
+                    <div class="profit-visual" id="profit-visual-bar" style="width: 50%;">Profit: 50%</div>
+                </div>
+            </div>
+            
+            <h2>General Reinvestment Guidelines by Business Stage</h2>
+            <p>While every business is unique, these guidelines can serve as a starting point:</p>
+            
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <h4>Startup Phase (0-2 years)</h4>
+                    <p><strong>Reinvestment Rate:</strong> 70-100%</p>
+                    <p>Most startups need to reinvest nearly all profits to fund growth, build infrastructure, and achieve stability. Founder compensation is often minimal during this phase.</p>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>Growth Phase (2-5 years)</h4>
+                    <p><strong>Reinvestment Rate:</strong> 50-70%</p>
+                    <p>As the business becomes more stable, you can begin taking more profit, but significant reinvestment is still needed to capitalize on growth opportunities.</p>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>Established Phase (5-10 years)</h4>
+                    <p><strong>Reinvestment Rate:</strong> 30-50%</p>
+                    <p>Mature businesses with stable revenue can allocate more to profit-taking while still funding ongoing improvements and moderate growth initiatives.</p>
+                </div>
+                
+                <div class="strategy-card">
+                    <h4>Mature Phase (10+ years)</h4>
+                    <p><strong>Reinvestment Rate:</strong> 20-40%</p>
+                    <p>Well-established businesses often require less reinvestment for growth and can return more profit to owners, though some reinvestment remains necessary to maintain competitiveness.</p>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Common Reinvestment Mistakes</h4>
+                <ul>
+                    <li>Reinvesting without a clear strategy or specific goals</li>
+                    <li>Neglecting to pay yourself a reasonable salary</li>
+                    <li>Failing to maintain adequate cash reserves</li>
+                    <li>Reinvesting in low-ROI initiatives</li>
+                    <li>Not adjusting reinvestment rates as the business evolves</li>
+                    <li>Ignoring tax implications of profit distribution</li>
+                </ul>
+            </div>
+            
+            <h2>Questions to Determine Your Reinvestment Rate</h2>
+            <p>Answer these questions to help determine the right balance for your business:</p>
+            
+            <div class="assessment">
+                <h3>Reinvestment Self-Assessment</h3>
+                <ul class="assessment-list">
+                    <li>What are the highest ROI opportunities for reinvestment in my business?</li>
+                    <li>How much do I need to cover my personal living expenses and financial goals?</li>
+                    <li>What reinvestment level do similar successful businesses in my industry maintain?</li>
+                    <li>What is my business's cash flow stability and emergency fund status?</li>
+                    <li>What debt obligations need to be serviced or paid down?</li>
+                    <li>What growth opportunities would additional reinvestment unlock?</li>
+                    <li>What are the tax implications of different profit distribution strategies?</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <h4><i class="fas fa-lightbulb"></i> Pro Tip: The 50/30/20 Rule for Small Businesses</h4>
+                <p>Some experts recommend allocating 50% of profits to reinvestment, 30% to owner compensation, and 20% to emergency reserves. This provides a balanced approach that supports growth while rewarding the owner and maintaining financial stability.</p>
+            </div>
+            
+            <h2>What to Reinvest In</h2>
+            <p>Not all reinvestment is created equal. Focus on areas that generate the highest returns:</p>
+            
+            <h3>High-ROI Reinvestment Areas</h3>
+            <p>Marketing and customer acquisition, technology and automation, employee training and development, product/service improvement, and market expansion typically offer the best returns on reinvestment.</p>
+            
+            <h3>Essential Reinvestment Areas</h3>
+            <p>Maintenance and equipment upgrades, compliance and regulatory requirements, and debt reduction are necessary reinvestments even if they don't directly drive growth.</p>
+            
+            <h3>Strategic Reinvestment Areas</h3>
+            <p>Research and development, new market entry, and strategic acquisitions can provide long-term competitive advantages but may take longer to show returns.</p>
+            
+            <h2>Creating Your Reinvestment Plan</h2>
+            <p>Follow this process to develop a strategic approach to profit allocation:</p>
+            
+            <ol class="steps">
+                <li><strong>Analyze your financials:</strong> Review profit trends, cash flow, and balance sheet strength.</li>
+                <li><strong>Define personal financial needs:</strong> Determine how much profit you need to take for personal expenses and goals.</li>
+                <li><strong>Identify growth opportunities:</strong> Evaluate potential reinvestment areas and their expected returns.</li>
+                <li><strong>Set reinvestment priorities:</strong> Rank opportunities based on potential impact and alignment with business goals.</li>
+                <li><strong>Determine allocation percentages:</strong> Establish guidelines for what percentage of profits will be reinvested versus taken as income.</li>
+                <li><strong>Create a timeline:</strong> Schedule reinvestment initiatives based on cash flow projections.</li>
+                <li><strong>Monitor and adjust:</strong> Regularly review the results of reinvestment decisions and adjust your strategy as needed.</li>
+            </ol>
+            
+            <div class="conclusion">
+                <h2>Final Thoughts</h2>
+                <p>The decision of how much to reinvest versus take as profit is one of the most important balancing acts you'll face as a business owner. There's no universal right answer—the optimal balance depends on your business's stage, industry, goals, and your personal financial situation.</p>
+                
+                <p>Remember that this balance will shift over time. During growth phases, you may need to reinvest more heavily, while during stable periods, you can take more profit. The key is to make intentional decisions rather than defaulting to either extreme.</p>
+                
+                <p>Regularly review your reinvestment strategy, measure the ROI of your investments, and adjust your approach based on results and changing circumstances. With careful planning and periodic reassessment, you can find the right balance that supports both your business's growth and your personal financial wellbeing.</p>
+            </div>
+        </div>
+        
+        <footer>
+           <p>© 2020-2015 incognito. All rights reserved</p>
+        </footer>
+    </div>
+
+    <script>
+        // Reinvestment calculator
+        function calculateReinvestment() {
+            const businessAge = document.getElementById('business-age').value;
+            const growthGoal = document.getElementById('growth-goal').value;
+            const industry = document.getElementById('industry').value;
+            const profitMargin = document.getElementById('profit-margin').value;
+            
+            if (!businessAge || !growthGoal || !industry || !profitMargin) {
+                document.getElementById('reinvestment-result').textContent = 'Please complete all fields to get a recommendation.';
+                return;
+            }
+            
+            let baseRate = 50; // Default rate
+            
+            // Adjust based on business age
+            if (businessAge === 'startup') baseRate += 30;
+            else if (businessAge === 'growing') baseRate += 15;
+            else if (businessAge === 'established') baseRate -= 5;
+            else if (businessAge === 'mature') baseRate -= 15;
+            
+            // Adjust based on growth goals
+            if (growthGoal === 'aggressive') baseRate += 20;
+            else if (growthGoal === 'moderate') baseRate += 5;
+            else if (growthGoal === 'maintain') baseRate -= 10;
+            else if (growthGoal === 'prepare-exit') baseRate -= 15;
+            
+            // Adjust based on industry
+            if (industry === 'tech' || industry === 'manufacturing') baseRate += 10;
+            else if (industry === 'restaurant') baseRate += 5;
+            else if (industry === 'service') baseRate -= 5;
+            
+            // Adjust based on profit margin
+            if (profitMargin === 'low') baseRate -= 10;
+            else if (profitMargin === 'high') baseRate += 5;
+            
+            // Ensure rate is between 10% and 90%
+            baseRate = Math.max(10, Math.min(90, baseRate));
+            
+            document.getElementById('reinvestment-result').textContent = 
+                `Suggested Reinvestment Rate: ${baseRate}%`;
+                
+            // Show visualization
+            document.getElementById('reinvestment-visual').style.display = 'flex';
+            document.getElementById('reinvest-visual-bar').style.width = `${baseRate}%`;
+            document.getElementById('reinvest-visual-bar').textContent = `Reinvest: ${baseRate}%`;
+            document.getElementById('profit-visual-bar').style.width = `${100 - baseRate}%`;
+            document.getElementById('profit-visual-bar').textContent = `Profit: ${100 - baseRate}%`;
+        }
+        
+        // Add fade-in animation to elements as they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('h2, h3, p, .factor-card, .highlight, blockquote, li, .warning-box, .tip-box, .strategy-card, .steps li');
+            
+            // Set initial state for animation
+            items.forEach(item => {
+                item.style.opacity = "0";
+                item.style.transform = "translateY(20px)";
+                item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            });
+            
+            // Function to check if element is in viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            // Function to handle scroll event
+            function checkVisibility() {
+                items.forEach(item => {
+                    if (isInViewport(item)) {
+                        item.style.opacity = "1";
+                        item.style.transform = "translateY(0)";
+                    }
+                });
+            }
+            
+            // Initial check
+            checkVisibility();
+            
+            // Listen for scroll events
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
+</body>
+</html>

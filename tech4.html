@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | 5G & Beyond: The Future of Connectivity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --secondary: #1d4ed8;
+            --accent: #06b6d4;
+            --speed: #ef4444;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            --gradient-speed: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --connectivity-glow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-image: 
+                radial-gradient(circle at 5% 15%, rgba(59, 130, 246, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 95% 85%, rgba(6, 182, 212, 0.05) 0%, transparent 20%),
+                linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.9));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.7)), 
+                        url('5g1.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: var(--connectivity-glow);
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #bfdbfe, #93c5fd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--connectivity-glow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+        }
+
+        .btn-speed {
+            background: var(--gradient-speed);
+        }
+
+        /* Navigation */
+        .article-nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .article-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .article-nav li {
+            margin: 0 1rem;
+        }
+
+        .article-nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .article-nav a:hover {
+            color: var(--primary);
+        }
+
+        .article-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .article-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Article Sections */
+        .article-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: var(--connectivity-glow);
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .text-content {
+            padding-right: 1rem;
+        }
+
+        .text-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .text-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .image-content {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s;
+        }
+
+        .image-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .image-content:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-content:hover .image-caption {
+            opacity: 1;
+        }
+
+        /* Speed Comparison */
+        .speed-comparison {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: var(--connectivity-glow);
+        }
+
+        .speed-bars {
+            width: 100%;
+            height: 300px;
+            background: rgba(10, 10, 25, 0.8);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+
+        .speed-bar {
+            width: 80px;
+            background: var(--gradient);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: height 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 1rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        .speed-bar.three-g {
+            background: var(--gradient-speed);
+            height: 20%;
+        }
+
+        .speed-bar.four-g {
+            background: var(--gradient);
+            height: 40%;
+        }
+
+        .speed-bar.five-g {
+            background: var(--gradient-accent);
+            height: 90%;
+        }
+
+        .speed-bar.six-g {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            height: 100%;
+        }
+
+        .speed-label {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .speed-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .speed-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .speed-info.active {
+            display: block;
+        }
+
+        /* Network Features */
+        .network-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .feature-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(59, 130, 246, 0.1);
+            font-size: 2rem;
+        }
+
+        .feature-content {
+            padding: 1.5rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Generations Comparison */
+        .generations-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .generation-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .generation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .generation-card.three-g::before {
+            background: var(--gradient-speed);
+        }
+
+        .generation-card.four-g::before {
+            background: var(--gradient);
+        }
+
+        .generation-card.five-g::before {
+            background: var(--gradient-accent);
+        }
+
+        .generation-card.six-g::before {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        }
+
+        .generation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .generation-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .generation-card.three-g .generation-icon {
+            color: #ef4444;
+        }
+
+        .generation-card.four-g .generation-icon {
+            color: var(--primary);
+        }
+
+        .generation-card.five-g .generation-icon {
+            color: var(--accent);
+        }
+
+        .generation-card.six-g .generation-icon {
+            color: #8b5cf6;
+        }
+
+        .generation-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Applications */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .application-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .application-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .app-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .app-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .application-card:hover .app-image img {
+            transform: scale(1.1);
+        }
+
+        .app-content {
+            padding: 1.5rem;
+        }
+
+        .app-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            box-shadow: var(--connectivity-glow);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--darker);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+            box-shadow: var(--connectivity-glow);
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            position: relative;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.7)), 
+                        url('tech-6b.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .article-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .article-nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>5G & Beyond: The Future of Connectivity</h1>
+                <p>Exploring the next generation of wireless technology that will transform how we live, work, and interact with the world around us.</p>
+                <a href="#intro" class="btn">Explore 5G Technology</a>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <!-- Introduction Section -->
+    <section id="intro" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What is 5G?</h2>
+                <p>The fifth generation of wireless technology is revolutionizing connectivity</p>
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>The Next Evolution in Wireless</h3>
+                    <p>5G is the fifth generation technology standard for cellular networks, which began deploying worldwide in 2019. It is designed to connect virtually everyone and everything together including machines, objects, and devices.</p>
+                    <p>5G wireless technology is meant to deliver higher multi-Gbps peak data speeds, ultra low latency, more reliability, massive network capacity, increased availability, and a more uniform user experience to more users.</p>
+                    <p>Higher performance and improved efficiency empower new user experiences and connects new industries. 5G is driving growth and enabling new possibilities across multiple sectors including automotive, healthcare, manufacturing, and entertainment.</p>
+                </div>
+                <div class="image-content">
+                    <img src="5g2.jpg" alt="5G Network">
+                    <div class="image-caption">5G infrastructure enables faster speeds and lower latency</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="article-section" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>How 5G Works</h2>
+                <p>The technology behind the next generation of wireless connectivity</p>
+            </div>
+            
+            <div class="network-features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Millimeter Waves</h3>
+                        <p>5G uses higher frequency bands (mmWave) that offer greater bandwidth but shorter range, requiring more cellular towers placed closer together.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Massive MIMO</h3>
+                        <p>Multiple Input Multiple Output technology uses multiple antennas at both transmitter and receiver to improve communication performance.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Network Slicing</h3>
+                        <p>5G networks can be divided into multiple virtual networks to support different services and applications with specific requirements.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="speed-comparison">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Speed Comparison: Mobile Generations</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem;">Visualizing the dramatic increase in data speeds across mobile generations</p>
+                
+                <div class="speed-bars">
+                    <div class="speed-bar three-g">
+                        3G
+                        <div class="speed-label">2 Mbps</div>
+                    </div>
+                    <div class="speed-bar four-g">
+                        4G
+                        <div class="speed-label">100 Mbps</div>
+                    </div>
+                    <div class="speed-bar five-g">
+                        5G
+                        <div class="speed-label">10 Gbps</div>
+                    </div>
+                    <div class="speed-bar six-g">
+                        6G
+                        <div class="speed-label">1 Tbps</div>
+                    </div>
+                </div>
+                
+                <div class="speed-controls">
+                    <button class="btn" id="latencyBtn">Latency Comparison</button>
+                    <button class="btn btn-accent" id="capacityBtn">Network Capacity</button>
+                </div>
+                
+                <div class="speed-info" id="speedInfo">
+                    <h4>5G Speed Advantages</h4>
+                    <p>5G offers speeds up to 100 times faster than 4G, with latency reduced to just 1 millisecond. This enables real-time applications and supports a massive increase in connected devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generations Comparison Section -->
+    <section id="comparison" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mobile Generations Comparison</h2>
+                <p>How 5G compares to previous and future wireless technologies</p>
+            </div>
+            
+            <div class="generations-comparison">
+                <div class="generation-card three-g">
+                    <div class="generation-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>3G</h3>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Introduced: 2001</li>
+                        <li>Speed: Up to 2 Mbps</li>
+                        <li>Key Feature: Mobile Internet</li>
+                        <li>Applications: Basic web browsing, email</li>
+                    </ul>
+                </div>
+                
+                <div class="generation-card four-g">
+                    <div class="generation-icon">
+                        <i class="fas fa-mobile"></i>
+                    </div>
+                    <h3>4G</h3>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Introduced: 2009</li>
+                        <li>Speed: Up to 100 Mbps</li>
+                        <li>Key Feature: Mobile broadband</li>
+                        <li>Applications: HD video streaming, gaming</li>
+                    </ul>
+                </div>
+                
+                <div class="generation-card five-g">
+                    <div class="generation-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>5G</h3>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Introduced: 2019</li>
+                        <li>Speed: Up to 10 Gbps</li>
+                        <li>Key Feature: IoT and mission-critical</li>
+                        <li>Applications: AR/VR, autonomous vehicles</li>
+                    </ul>
+                </div>
+                
+                <div class="generation-card six-g">
+                    <div class="generation-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <h3>6G</h3>
+                    <ul style="text-align: left; margin-top: 1rem;">
+                        <li>Expected: 2030</li>
+                        <li>Speed: Up to 1 Tbps</li>
+                        <li>Key Feature: AI-integrated networks</li>
+                        <li>Applications: Holograms, connected intelligence</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="content-grid" style="margin-top: 3rem;">
+                <div class="image-content">
+                    <img src="5g3.jpg" alt="5G Infrastructure">
+                    <div class="image-caption">5G requires dense infrastructure with small cells placed throughout urban areas</div>
+                </div>
+                <div class="text-content">
+                    <h3>Key 5G Differentiators</h3>
+                    <p>5G isn't just about faster speeds. It introduces several revolutionary capabilities:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li><strong>Enhanced Mobile Broadband (eMBB):</strong> Faster data rates and higher capacity</li>
+                        <li><strong>Ultra-Reliable Low Latency Communications (URLLC):</strong> Mission-critical applications</li>
+                        <li><strong>Massive Machine Type Communications (mMTC):</strong> Connecting billions of IoT devices</li>
+                    </ul>
+                    <p>These capabilities enable transformative applications across industries, from smart cities to remote surgery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="article-section" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>5G Applications</h2>
+                <p>Transformative use cases enabled by 5G technology</p>
+            </div>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="5g4.jpg" alt="Smart Cities">
+                    </div>
+                    <div class="app-content">
+                        <h3>Smart Cities</h3>
+                        <p>5G enables connected infrastructure, intelligent traffic systems, and real-time monitoring for more efficient and sustainable urban environments.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="5g5.jpg" alt="Healthcare">
+                    </div>
+                    <div class="app-content">
+                        <h3>Telemedicine</h3>
+                        <p>Ultra-low latency enables remote surgery, real-time patient monitoring, and immersive medical training through AR/VR applications.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="p1.jpg" alt="Autonomous Vehicles">
+                    </div>
+                    <div class="app-content">
+                        <h3>Autonomous Vehicles</h3>
+                        <p>5G enables vehicle-to-everything (V2X) communication, allowing cars to communicate with each other and infrastructure in real-time.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="i1.jpg" alt="Industrial IoT">
+                    </div>
+                    <div class="app-content">
+                        <h3>Industrial IoT</h3>
+                        <p>Manufacturing facilities use 5G to connect thousands of sensors and machines, enabling predictive maintenance and optimized operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beyond 5G Section -->
+    <section id="beyond" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Beyond 5G: The Road to 6G</h2>
+                <p>What comes after 5G and how it will further transform connectivity</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>6G Vision</h3>
+                    <p>While 5G is still being deployed globally, researchers are already looking toward 6G, expected to arrive around 2030. 6G aims to integrate communication networks with intelligence, creating a "network of networks" that seamlessly connects physical, digital, and human worlds.</p>
+                    
+                    <h3>Key 6G Technologies</h3>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li><strong>Terahertz Frequencies:</strong> Using sub-millimeter waves for even higher capacity</li>
+                        <li><strong>AI-Native Networks:</strong> Built-in artificial intelligence for self-optimization</li>
+                        <li><strong>Holographic Communications:</strong> Lifelike 3D projections for remote presence</li>
+                        <li><strong>Integrated Sensing:</strong> Networks that can sense the environment around them</li>
+                        <li><strong>Quantum Communications:</strong> Ultra-secure connections using quantum principles</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="6g1.jpg" alt="Future Connectivity">
+                    <div class="image-caption">6G will create seamless connectivity between physical and digital worlds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future" class="article-section" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Future of Connectivity</h2>
+                <p>Challenges and opportunities in the 5G era and beyond</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="image-content">
+                    <img src="city.jpg" alt="5G Challenges">
+                    <div class="image-caption">Deploying 5G infrastructure presents both technical and regulatory challenges</div>
+                </div>
+                <div class="text-content">
+                    <h3>Implementation Challenges</h3>
+                    <p>Despite its promise, 5G faces several implementation challenges:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li><strong>Infrastructure Costs:</strong> Dense networks require significant investment</li>
+                        <li><strong>Spectrum Availability:</strong> Limited radio frequencies must be allocated efficiently</li>
+                        <li><strong>Coverage Limitations:</strong> Higher frequencies have shorter range and penetration</li>
+                        <li><strong>Security Concerns:</strong> More connected devices create larger attack surfaces</li>
+                        <li><strong>Energy Consumption:</strong> Network equipment requires substantial power</li>
+                    </ul>
+                    
+                    <h3>The Path Forward</h3>
+                    <p>Overcoming these challenges requires collaboration between governments, industry, and researchers. Standardization, spectrum allocation, and infrastructure investment will be critical to realizing 5G's full potential and paving the way for 6G.</p>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1980s: 1G Analog</h3>
+                        <p>The first generation of wireless cellular technology introduced analog voice calls with limited capacity and security.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1990s: 2G Digital</h3>
+                        <p>Second generation introduced digital encryption, text messaging, and more efficient use of spectrum.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2000s: 3G Mobile Internet</h3>
+                        <p>Third generation enabled mobile internet access, video calling, and mobile TV services.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2010s: 4G LTE</h3>
+                        <p>Fourth generation provided high-speed internet access, enabling mobile video streaming, gaming, and the app economy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2020s: 5G Transformation</h3>
+                        <p>Fifth generation enables IoT, mission-critical communications, and enhanced mobile broadband with ultra-low latency.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2030s: 6G Integration</h3>
+                        <p>Sixth generation expected to integrate AI, provide terabit speeds, and connect intelligence across physical and digital worlds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Connectivity Future</h3>
+                    <p>Exploring the evolution of wireless technology from 5G to future generations and their transformative impact on society.</p>
+                    
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#how-it-works">How 5G Works</a></li>
+                        <li><a href="#comparison">Generations</a></li>
+                        <li><a href="#applications">Applications</a></li>
+                        <li><a href="#beyond">Beyond 5G</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            <div class="copyright">
+                <p>&copy; 2020-2025 incognito. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Speed Comparison Interactive
+        document.addEventListener('DOMContentLoaded', function() {
+            const speedInfo = document.getElementById('speedInfo');
+            const latencyBtn = document.getElementById('latencyBtn');
+            const capacityBtn = document.getElementById('capacityBtn');
+            
+            // Initialize with speed info visible
+            speedInfo.classList.add('active');
+            
+            latencyBtn.addEventListener('click', function() {
+                speedInfo.innerHTML = `
+                    <h4>5G Latency Advantages</h4>
+                    <p>5G reduces latency to just 1 millisecond compared to 30-50 milliseconds with 4G. This near real-time responsiveness enables applications like remote surgery, autonomous vehicles, and immersive AR/VR experiences that weren't possible with previous generations.</p>
+                `;
+            });
+            
+            capacityBtn.addEventListener('click', function() {
+                speedInfo.innerHTML = `
+                    <h4>5G Network Capacity</h4>
+                    <p>5G supports up to 1 million devices per square kilometer, compared to about 100,000 with 4G. This massive connectivity enables the Internet of Things (IoT) at scale, connecting everything from smart sensors to autonomous systems in dense urban environments.</p>
+                `;
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('.article-nav a, .btn').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#' || !targetId.startsWith('#')) return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animate speed bars on scroll
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const speedBars = document.querySelectorAll('.speed-bar');
+                        speedBars.forEach(bar => {
+                            // Reset heights to trigger animation
+                            const height = bar.style.height;
+                            bar.style.height = '0';
+                            setTimeout(() => {
+                                bar.style.height = height;
+                            }, 100);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            const speedComparison = document.querySelector('.speed-comparison');
+            if (speedComparison) {
+                observer.observe(speedComparison);
+            }
+        });
+    </script>
+</body>
+</html>

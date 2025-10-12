@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | Secure Payment - business scaleup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAjKdwUqH7N69XRpJKuJ50Puj8D2UkmaaEQ0jyrHADdUrQFlz2tPAQXULarGKBVHJWNaOxy3Fjpo9zU0U&components=hosted-buttons&disable-funding=venmo&currency=USD">
+</script>
+    <style>
+        :root {
+            --primary: #4a36ec;
+            --secondary: #6c63ff;
+            --accent: #ff6b6b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .payment-container {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .payment-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .payment-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-header p {
+            opacity: 0.9;
+        }
+        
+        .payment-body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .order-summary {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+            background: var(--light);
+            border-right: 1px solid #e2e8f0;
+        }
+        
+        .order-summary h2 {
+            color: var(--primary);
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .plan-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f1f1;
+            display: flex;
+            align-items: center;
+        }
+        
+        .plan-features li i {
+            color: var(--success);
+            margin-right: 0.5rem;
+        }
+        
+        .plan-duration {
+            color: #64748b;
+            font-style: italic;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+        }
+        
+        .payment-form h2 {
+            color: var(--primary);
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74, 54, 236, 0.1);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .payment-method {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: lightpink;
+            margin-top: 4px;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary);
+        }
+        
+        .payment-method.active {
+            border-color: var(--primary);
+            background: rgba(74, 54, 236, 0.05);
+        }
+        
+        .payment-method i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .security-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            color: #64748b;
+        }
+        
+        .security-note i {
+            color: var(--success);
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 1.2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .payment-footer {
+            padding: 1.5rem 2rem;
+            background: var(--light);
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .payment-footer p {
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .payment-footer img {
+            height: 30px;
+            margin: 0 0.5rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link i {
+            margin-right: 0.5rem;
+        }
+        
+        /* Formspree confirmation message */
+        .formspree-confirmation {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border: 1px solid var(--success);
+        }
+        
+        .formspree-confirmation i {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .payment-container {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .payment-body {
+                flex-direction: column;
+            }
+            
+            .order-summary {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="payment-container">
+            <div class="payment-header">
+                <h1>Complete Your Payment</h1>
+                <p>Make sure you have Registered your Business before making payment</p>
+            </div>
+            
+            <div class="payment-body">
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    
+                    <div class="plan-card">
+                        <div class="plan-name">Business Registration</div>
+                        <div class="plan-price">$12.67<span class="plan-duration">/onetime fee</span></div>
+                        
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check-circle"></i> Expanded audience reach</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced analytics dashboard</li>
+                            <li><i class="fas fa-check-circle"></i> Premium customer support</li>
+                            <li><i class="fas fa-check-circle"></i> Marketing tools suite</li>
+                            <li><i class="fas fa-check-circle"></i> Custom business profile</li>
+                        </ul>
+                        
+                        <div class="plan-duration">Billed onetime upon Registration.</div>
+                    </div>
+                    
+                    
+                </div>
+                
+                <div class="payment-form">
+                    <h2>Payment Details</h2>
+
+                    <div id="paypal-container-9TSG3D82QLTS2"></div>
+                    <script>
+                    paypal.HostedButtons({
+                        hostedButtonId: "9TSG3D82QLTS2",
+                    }).render("#paypal-container-9TSG3D82QLTS2")
+                    </script>
+                                        
+                                        <div id="paypal-container-9TSG3D82QLTS2"></div>
+                    <div id="paypal-container-9TSG3D82QLTS2"></div>
+                    <script>
+                    paypal.HostedButtons({
+                        hostedButtonId: "9TSG3D82QLTS2",
+                    }).render("#paypal-container-9TSG3D82QLTS2")
+                    </script><hr>
+                            <a href="mobile-pay.html" style="text-decoration: none; color: black;"><div class="payment-method">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>Mobile Pay</div>
+                        </div>
+                        </a>
+                    </div>
+                   
+                </div>
+            </div>
+            
+            <div class="payment-footer">
+                <p>We use industry-standard encryption to protect your data</p>
+                <div>
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgNTAgMjAwIDQwIj48cGF0aCBmaWxsPSIjNjdiMzdmIiBkPSJNNDAgNTBoMTIwdjQwSDQweiIvPjxwYXRoIGZpbGw9IiNmMzMyMmMiIGQ9Ik0xNjAgNTBoNDB2NDBoLTQweiIvPjxwYXRoIGZpbGw9IiNmZWJlMDAiIGQ9Ik0xMjAgNTBoNDB2NDBoLTQweiIvPjxwYXRoIGZpbGw9IiMyOWEyOWEiIGQ9Ik04MCA1MGg0MHY0MEg4MHoiLz48L3N2Zz4=" alt="PCI Compliant">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgNTAgMTUwIDQwIj48cGF0aCBmaWxsPSIjMDA2N0YzIiBkPSJNMzAgNTBoOTB2NDBIMzB6Ii8+PHBhdGggZmlsbD0iI0VEMjIyNyIgZD0iTTEyMCA1aDQwdjQwaC00MHoiLz48L3N2Zz4=" alt="SSL Secure">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Payment method selection
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Format card number input
+            const cardNumberInput = document.getElementById('card-number');
+            
+            cardNumberInput.addEventListener('input', function() {
+                let value = this.value.replace(/\D/g, '');
+                
+                if (value.length > 16) {
+                    value = value.slice(0, 16);
+                }
+                
+                // Add spaces for better readability
+                let formattedValue = '';
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formattedValue += ' ';
+                    }
+                    formattedValue += value[i];
+                }
+                
+                this.value = formattedValue;
+            });
+            
+            // Format expiry date input
+            const expiryInput = document.getElementById('expiry-date');
+            
+            expiryInput.addEventListener('input', function() {
+                let value = this.value.replace(/\D/g, '');
+                
+                if (value.length > 4) {
+                    value = value.slice(0, 4);
+                }
+                
+                if (value.length > 2) {
+                    this.value = value.slice(0, 2) + '/' + value.slice(2);
+                } else {
+                    this.value = value;
+                }
+            });
+            
+            // Formspree form handling
+            const form = document.getElementById('payment-form');
+            const confirmation = document.querySelector('.formspree-confirmation');
+            
+            // Check if we're coming back from Formspree submission
+            if (window.location.search.includes('submit=success')) {
+                form.style.display = 'none';
+                confirmation.style.display = 'block';
+            }
+            
+            // Optional: Add AJAX form submission
+            form.addEventListener('submit', function(e) {
+                // You can add additional validation here
+                
+                // For demonstration, we'll let it submit to Formspree normally
+                // In a real implementation, you might want to use AJAX
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub - Your Technology Portal</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background-color: #4a6bff;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #3a5bef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e9e9e9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #4a6bff;
+            border-radius: 2px;
+        }
+
+        /* Welcome Header */
+        .welcome-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6bff 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .welcome-header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .welcome-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .logo span {
+            color: #4a6bff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: #2c3e50;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #4a6bff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #4a6bff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+
+        /* Slideshow */
+        .slideshow {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 100px;
+            left: 100px;
+            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 30px;
+            border-radius: 5px;
+        }
+
+        .slide-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .slide-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            padding: 25px;
+        }
+
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .feature-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .feature-actions {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #4a6bff;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #4a6bff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #4a6bff;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .slide-content {
+                left: 50px;
+                bottom: 50px;
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .welcome-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .welcome-header p {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 50%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 30px;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .slideshow {
+                height: 400px;
+            }
+
+            .slide-content {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+                max-width: none;
+            }
+
+            .slide-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .welcome-header {
+                padding: 80px 20px;
+            }
+
+            .slideshow {
+                height: 300px;
+            }
+
+            .slide-content {
+                padding: 15px;
+            }
+
+            .slide-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .slide-content p {
+                font-size: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .feature-img{
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">Maxter<span>Hub</span></a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="home-final.html">Home</a></li>
+                <li><a href="gaming-home.html">Gaming</a></li>
+                <li><a href="business-scaleup.html">Business</a></li>
+                <li><a href="coding.html">Coding</a></li>
+                
+                <li><a href="webdev.html">Web Dev</a></li>
+                <li><a href="tech-home.html">Innovation</a></li>
+            </ul>
+        </div>
+        
+    </nav>
+
+    <!-- Slideshow -->
+    <div class="slideshow">
+        <div class="slide active" style="background-image: url('tech-1.jpeg')">
+            <div class="slide-content">
+                <h2>Discover the Latest in Technology</h2>
+                <p>Stay ahead with cutting-edge innovations and trends shaping our digital future.</p>
+                
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('coding-1.JPG')">
+            <div class="slide-content">
+                <h2>Enhance Your Coding Skills</h2>
+                <p>Access our comprehensive library of tutorials for all skill levels and programming languages.</p>
+                
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('games.webp')">
+            <div class="slide-content">
+                <h2>Premium Gaming Experience</h2>
+                <p>Discover our curated selection of game recommendations and community features.</p>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Sections -->
+    <main class="container">
+
+         <!-- Web Development -->
+        <section id="webdev">
+            <h2 class="section-title">Web Development</h2>
+            
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="coding-2.JPG" alt="Startup Registration" class="feature-img">
+                    <div class="feature-content">
+                        <h3>Build your website with us</h3>
+                        <p>Need to put your business online but don't know where to start?,
+                            <span style="font-style: italic; font-weight: bold;">we've got your back.</span> 
+                            
+                        </p>
+                        <div class="feature-actions">
+
+                            <a href="contacts.html" class="btn btn-primary">contact now</a>
+                            <a href="webdev.html" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Registration -->
+        <section id="business">
+            <h2 class="section-title">Business LevelUp</h2>
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <img src="Buss.jpg" alt="Business Network" class="feature-img">
+                    <div class="feature-content">
+                        <h3>Next level entrepreneur</h3>
+                        <p>Register your business and reach out to your target customers</p>
+                        <p>Get acess to some verified helpfull business resources and articles</p>
+                        <p>View and get into contact with Already registered Businesses</p>
+                        <div class="feature-actions">
+                            <a href="business-reg-form.html" class="btn btn-primary">Register Now</a>
+                            <a href="business-learn-resources.html" class="btn btn-primary">Access Resources</a>
+                            <a href="page-error-1.html" class="btn btn-primary">View Businesses</a>
+                            <a href="business-scaleup.html" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Gaming Recommendations -->
+        <section id="gaming">
+            <h2 class="section-title">Gaming Recommendations</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="gaming-1.webp" alt="Action Games" class="feature-img">
+                    <div class="feature-content">
+                        <h3>Action & Adventure</h3>
+                        <p>Explore our top picks for action-packed adventures with immersive 
+                            storylines and breathtaking graphics.</p>
+                        <div class="feature-actions">
+                            <a href="gaming-home.html" class="btn btn-primary">View Recommendations</a>
+                            <a href="page-error-1.html" class="btn btn-secondary">Join Community</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        
+
+        <!-- Coding Tutorials -->
+        <section id="coding">
+            <h2 class="section-title">Coding Tutorials</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="coding-1.webp" alt="Web Development" class="feature-img">
+                    <div class="feature-content">
+                        <h3>Web Development</h3>
+                        <p>Master HTML, CSS, JavaScript and modern frameworks with our comprehensive web development courses.</p>
+                        <div class="feature-actions">
+                            <a href="coding.html" class="btn btn-primary">Start Learning</a>
+                            <a href="coding-roadmap.html" class="btn btn-secondary">Coding RoadMap</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        
+
+       
+
+        <!-- Tech & Innovation -->
+        <section id="innovation">
+            <h2 class="section-title">Tech & Innovation</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="tech-5.jpeg" alt="Emerging Tech" class="feature-img">
+                    <div class="feature-content">
+                        <h3>Emerging Technologies</h3>
+                        <p>Stay updated on the latest developments in AI, blockchain, IoT, and other groundbreaking technologies.</p>
+                        <div class="feature-actions">
+                            <a href="tech-home.html" class="btn btn-primary">Explore</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TechHub</h3>
+                    <p>Your comprehensive technology portal for learning, innovation, and business growth.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/greatabdul">f</a>
+                        <a href="https://www.x.com/incognito_xr">t</a>
+                        <a href="https://wa.me/255749246701?text=Hello">WA</a>
+                        <a href="https://www.instagram.com/xr_incognito">ig</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#gaming">Gaming</a></li>
+                        <li><a href="#business">Business</a></li>
+                        <li><a href="#coding">Coding</a></li>
+                        <li><a href="#innovation">Innovation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: maxterabhi@gmail.com</li>
+                        <li>Phone: (+255) 0749-246-701</li>
+                        <li>Address: 006, Iringa, Kihesa</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2020-2025 incognito. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Sticky Navbar on Scroll
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        
+
+
+        // Slideshow Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+    </script>
+
+    
+
+    
+</body>
+</html>

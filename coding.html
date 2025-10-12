@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | Codinghub - Learn to Code</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/back1.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn i {
+            margin-right: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        /* Language Slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .slideshow {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem;
+        }
+
+        .slide-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+
+        .slide-nav button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slide-nav button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .slide-dots {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background: var(--primary-color);
+        }
+
+        /* Tutorials Grid */
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tutorial-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tutorial-thumbnail {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tutorial-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .tutorial-card:hover .tutorial-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .tutorial-info {
+            padding: 1.5rem;
+        }
+
+        .tutorial-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .tutorial-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .tutorial-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Books Section */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .book-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-cover {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .book-card:hover .book-cover img {
+            transform: scale(1.05);
+        }
+
+        .book-info {
+            padding: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .book-author {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.8rem;
+        }
+
+        .book-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .btn-read {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-read:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-download {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .btn-download:hover {
+            background-color: #d5dbdb;
+        }
+
+        /* Cheat Sheets */
+        .cheatsheets-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cheatsheet-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .cheatsheet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .cheatsheet-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .cheatsheet-card h3 i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .cheatsheet-card ul {
+            list-style: none;
+        }
+
+        .cheatsheet-card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .cheatsheet-card ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .cheatsheet-card a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .cheatsheet-card a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Advice Section */
+        .advice-container {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .advice-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 1.5rem;
+        }
+
+        .advice-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .advice-tab.active {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .advice-tab:hover:not(.active) {
+            border-bottom: 3px solid #ccc;
+        }
+
+        .advice-content {
+            display: none;
+        }
+
+        .advice-content.active {
+            display: block;
+        }
+
+        .advice-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .advice-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .advice-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .advice-item h3 i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .advice-item p {
+            color: #666;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0 1.5rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: #c0392b;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .hero .btn-secondary {
+                margin-left: 0;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 5px;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tutorials-grid, .books-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slide-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .slide-content p {
+                font-size: 0.9rem;
+            }
+
+            .advice-tabs {
+                flex-wrap: wrap;
+            }
+
+            .advice-tab {
+                flex: 1 0 50%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    
+                    <span>MasterHub_Coding</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                        <li><a href="#books">Books</a></li>
+                        <li><a href="#cheatsheets">Cheat Sheets</a></li>
+                        <li><a href="#advice">Advice</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Master Coding with Our Comprehensive Resources</h1>
+            <p>Learn programming languages, frameworks, and best practices through our curated collection of tutorials, books, and cheat sheets.</p>
+            <a href="#tutorials" class="btn btn-primary"><i class="fas fa-play"></i> Start Learning</a>
+            
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Popular Programming Languages</h2>
+        <div class="slideshow-container">
+            <div class="slideshow" id="slideshow">
+                <div class="slide">
+                    <img src="zzz1.jpeg" alt="JavaScript">
+                    <div class="slide-content">
+                        <h3>JavaScript</h3>
+                        <p>The language of the web. Learn to build interactive websites and applications.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="zzz2.jpeg" alt="Python">
+                    <div class="slide-content">
+                        <h3>Python</h3>
+                        <p>Versatile and beginner-friendly. Used in web development, data science, AI, and more.</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="zzz3.jpeg" alt="Java">
+                    <div class="slide-content">
+                        <h3>Java</h3>
+                        <p>Object-oriented language powering enterprise applications and Android development.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-nav">
+                <button id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-slide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slide-dots" id="slide-dots">
+                <!-- Dots will be added by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="tutorials" class="container">
+        <h2 class="section-title">Video Tutorials</h2>
+        <div class="tutorials-grid">
+            <div class="tutorial-card">
+                <div class="tutorial-thumbnail">
+                    <img src="coding/qwe.png" alt="JavaScript Tutorial">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="tutorial-info">
+                    <h3>JavaScript Full Course</h3>
+                    <p>Learn the fundamentals of JavaScript. This course will get you through all there is to know about JavaScript</p>
+                    <div class="tutorial-meta">
+                        <span><i class="fas fa-clock"></i> 22:15:57</span>
+                        <span><i class="fas fa-eye"></i> 6.5M views</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=EerdGm-ehJQ&t=6074s&pp=ygUWamF2YXNjcmlwdCBmdWxsIGNvdXJzZQ%3D%3D" 
+                    target="_blank" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Watch Now</a>
+                </div>
+            </div>
+            <div class="tutorial-card">
+                <div class="tutorial-thumbnail">
+                    <img src="aaasd.jpg" alt="Python Tutorial">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="tutorial-info">
+                    <h3>Python for Beginners - Full Course</h3>
+                    <p>Learn Python programming in this complete course for beginners. This tutorial covers everything from basics to building projects.</p>
+                    <div class="tutorial-meta">
+                        <span><i class="fas fa-clock"></i> 4:26:52</span>
+                        <span><i class="fas fa-eye"></i> 5.1M views</span>
+                    </div>
+                    <a href="https://youtu.be/rfscVS0vtbw" target="_blank" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Watch Now</a>
+                </div>
+            </div>
+            <div class="tutorial-card">
+                <div class="tutorial-thumbnail">
+                    <img src="coding/sds.png" alt="HTML & CSS Tutorial">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="tutorial-info">
+                    <h3>HTML & CSS Full Course</h3>
+                    <p>Learn HTML and CSS from scratch. This tutorial covers everything you need to know to build beautiful responsive websites.</p>
+                    <div class="tutorial-meta">
+                        <span><i class="fas fa-clock"></i> 6:31:24</span>
+                        <span><i class="fas fa-eye"></i> 16M views</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=G3e-cpL7ofc&t=9313s&pp=ygUUaHRtbCBjc3MgZnVsbCBjb3Vyc2U%3D" 
+                    target="_blank" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Watch Now</a>
+                </div>
+            </div>
+            <div class="tutorial-card">
+                <div class="tutorial-thumbnail">
+                    <img src="coding/ggg.png" alt="React Tutorial">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="tutorial-info">
+                    <h3>React Full course - Beginner to Pro</h3>
+                    <p>Learn React.js in this comprehensive tutorial for beginners. Build modern web applications with this popular JavaScript library.</p>
+                    <div class="tutorial-meta">
+                        <span><i class="fas fa-clock"></i> 11:32:04</span>
+                        <span><i class="fas fa-eye"></i> 1.2M views</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=TtPXvEcE11E" target="_blank" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Watch Now</a>
+                </div>
+            </div>
+            <div class="tutorial-card">
+                <div class="tutorial-thumbnail">
+                    <img src="coding/cxz.png" alt="SQL Tutorial">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="tutorial-info">
+                    <h3>SQL Tutorial - Full Database Course</h3>
+                    <p>Learn SQL for working with databases. This course covers queries, joins, functions, and database design principles.</p>
+                    <div class="tutorial-meta">
+                        <span><i class="fas fa-clock"></i> 4:20:39</span>
+                        <span><i class="fas fa-eye"></i> 3.7M views</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=HXV3zeQKqGY&pp=ygUjU1FMIFR1dG9yaWFsIC0gRnVsbCBEYXRhYmFzZSBDb3Vyc2U%3D" target="_blank" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Watch Now</a>
+                </div>
+            </div>
+            <div class="tutorial-card">
+                <div class="tutorial-thumbnail">
+                    <img src="coding/giu.png" alt="Git Tutorial">
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="tutorial-info">
+                    <h3>Git and GitHub for Beginners</h3>
+                    <p>Master Git version control and GitHub in this crash course. Learn essential commands and workflows used by developers.</p>
+                    <div class="tutorial-meta">
+                        <span><i class="fas fa-clock"></i> 1:08:29</span>
+                        <span><i class="fas fa-eye"></i> 4.7M views</span>
+                    </div>
+                    <a href="https://www.youtube.com/watch?v=RGOj5yH7evk" target="_blank" class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Watch Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="books" class="container">
+        <h2 class="section-title">Coding Books</h2>
+        <div class="books-grid">
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="coding/aae.jpg" alt="java">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">JAVA Programming Fundamentals</h3>
+                    <p class="book-author">Premchand S. Nair</p>
+                    <div class="book-actions">
+                        <a href="Java Programming Fundamentals_ Problem Solving Through Object Oriented Analysis and Design.pdf">
+                            <button class="btn btn-read"><i class="fas fa-book-open"></i> Read</button></a>
+                        <a href="Java Programming Fundamentals_ Problem Solving Through Object Oriented Analysis and Design.pdf" download>
+                            <button class="btn btn-download"><i class="fas fa-download"></i> Download</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="coding/aah.jpg" alt="python">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Introduction to Python Programming</h3>
+                    <p class="book-author">OpenStax</p>
+                    <div class="book-actions">
+                        <a href="Introduction_to_Python_Programming_-_WEB.pdf">
+                            <button class="btn btn-read"><i class="fas fa-book-open"></i> Read</button>
+                        </a>
+                        <a href="Introduction_to_Python_Programming_-_WEB.pdf" dowwnload>
+                            <button class="btn btn-download"><i class="fas fa-download"></i> Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="coding/aai.jpg" alt="javascript">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">JavaScript Notes</h3>
+                    <p class="book-author">GoalKicker</p>
+                    <div class="book-actions">
+                        <a href="JavaScriptNotesForProfessionals.pdf">
+                            <button class="btn btn-read"><i class="fas fa-book-open"></i> Read</button>
+                        </a>
+                        <a href="JavaScriptNotesForProfessionals.pdf" download>
+                            <button class="btn btn-download"><i class="fas fa-download"></i> Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="coding/aaa.jpg" alt="C#">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Programming C#</h3>
+                    <p class="book-author">O'Reilly</p>
+                    <div class="book-actions">
+                        <a href="rty.pdf">
+                            <button class="btn btn-read"><i class="fas fa-book-open"></i> Read</button>
+                        </a>
+                        <a href="rty.pdf" download>
+                            <button class="btn btn-download"><i class="fas fa-download"></i> Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="coding/aaj.jpg" alt="PHP">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">Programming PHP</h3>
+                    <p class="book-author">O'Reilly</p>
+                    <div class="book-actions">
+                        <a href="Programming-PHP-3rd-Edition.pdf">
+                            <button class="btn btn-read"><i class="fas fa-book-open"></i> Read</button>
+                        </a>
+                        <a href="Programming-PHP-3rd-Edition.pdf" download>
+                            <button class="btn btn-download"><i class="fas fa-download"></i> Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="coding/html.png" alt="HTML CSS">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">HTML & CSS Complete Reference</h3>
+                    <p class="book-author">Thomas A. Powel</p>
+                    <div class="book-actions">
+                        <a href="the-complete-reference-html-css-fifth-edition.pdf">
+                            <button class="btn btn-read"><i class="fas fa-book-open"></i> Read</button>
+                        </a>
+                        <a href="the-complete-reference-html-css-fifth-edition.pdf" download>
+                            <button class="btn btn-download"><i class="fas fa-download"></i> Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="coding/aac.jpg" alt="Swift">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">The Swift Programming Language</h3>
+                    <p class="book-author">Incognito</p>
+                    <div class="book-actions">
+                        <a href="SwiftProgrammingLanguage57.pdf">
+                            <button class="btn btn-read"><i class="fas fa-book-open"></i> Read</button>
+                        </a>
+                        <a href="SwiftProgrammingLanguage57.pdf" download>
+                            <button class="btn btn-download"><i class="fas fa-download"></i> Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="coding/cvc.png" alt="CPP">
+                </div>
+                <div class="book-info">
+                    <h3 class="book-title">LEARN C++ Programming Language</h3>
+                    <p class="book-author">Tuitorialspoint</p>
+                    <div class="book-actions">
+                        <a href="cpp.pdf">
+                            <button class="btn btn-read"><i class="fas fa-book-open"></i> Read</button>
+                        </a>
+                        <a href="cpp.pdf" download>
+                            <button class="btn btn-download"><i class="fas fa-download"></i> Download</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cheatsheets" class="container">
+        <h2 class="section-title">Cheat Sheets</h2>
+        <div class="cheatsheets-container">
+            <div class="cheatsheet-card">
+                <h3><i class="fab fa-js"></i> JavaScript Cheat Sheet</h3>
+                <ul>
+                    <li>Variables and Data Types</li>
+                    <li>Functions and Scope</li>
+                    <li>Array Methods</li>
+                    <li>Object Methods</li>
+                    <li>ES6+ Features</li>
+                </ul>
+                <a href="Javascript-Cheat-Sheet.pdf" download>Download PDF <i class="fas fa-download"></i></a>
+            </div>
+            <div class="cheatsheet-card">
+                <h3><i class="fab fa-python"></i> Python Cheat Sheet</h3>
+                <ul>
+                    <li>Basic Syntax</li>
+                    <li>List Comprehensions</li>
+                    <li>String Formatting</li>
+                    <li>Common Libraries</li>
+                    <li>Error Handling</li>
+                </ul>
+                <a href="beginners_python_cheat_sheet_pcc_all.pdf" download>Download PDF <i class="fas fa-download"></i></a>
+            </div>
+            <div class="cheatsheet-card">
+                <h3><i class="fab fa-html5"></i> HTML5 Cheat Sheet</h3>
+                <ul>
+                    <li>Document Structure</li>
+                    <li>Common Tags</li>
+                    <li>Forms and Inputs</li>
+                    <li>Semantic Elements</li>
+                    <li>Accessibility</li>
+                </ul>
+                <a href="htmlcheatsheet.pdf" download>Download PDF <i class="fas fa-download"></i></a>
+            </div>
+            <div class="cheatsheet-card">
+                <h3><i class="fab fa-css3-alt"></i> CSS3 Cheat Sheet</h3>
+                <ul>
+                    <li>Selectors and Specificity</li>
+                    <li>Flexbox and Grid</li>
+                    <li>Transitions and Animations</li>
+                    <li>Media Queries</li>
+                    <li>Common Properties</li>
+                </ul>
+                <a href="wsu-css-cheat-sheet-gdocs.pdf" download>Download PDF <i class="fas fa-download"></i></a>
+            </div>
+            <div class="cheatsheet-card">
+                <h3><i class="fas fa-database"></i> SQL Cheat Sheet</h3>
+                <ul>
+                    <li>Basic Queries</li>
+                    <li>Joins and Subqueries</li>
+                    <li>Common Functions</li>
+                    <li>Indexes and Constraints</li>
+                    <li>Transactions</li>
+                </ul>
+                <a href="SQL-Cheat-Sheet.pdf" download>Download PDF <i class="fas fa-download"></i></a>
+            </div>
+            <div class="cheatsheet-card">
+                <h3><i class="fab fa-git-alt"></i> Git Cheat Sheet</h3>
+                <ul>
+                    <li>Basic Commands</li>
+                    <li>Branching and Merging</li>
+                    <li>Undoing Changes</li>
+                    <li>Remote Repositories</li>
+                    <li>Workflows</li>
+                </ul>
+                <a href="git-cheat-sheet-education.pdf" download>Download PDF <i class="fas fa-download"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="advice" class="container">
+        <h2 class="section-title">Advice for Junior Developers</h2>
+        <div class="advice-container">
+            <div class="advice-tabs">
+                <div class="advice-tab active" data-tab="learning">Learning</div>
+                <div class="advice-tab" data-tab="career">Career</div>
+                <div class="advice-tab" data-tab="productivity">Productivity</div>
+                <div class="advice-tab" data-tab="mindset">Mindset</div>
+            </div>
+            <div class="advice-content active" id="learning-content">
+                <div class="advice-item">
+                    <h3><i class="fas fa-graduation-cap"></i> Focus on Fundamentals</h3>
+                    <p>Before jumping into frameworks, master the core concepts of programming and the language you're working with. Strong fundamentals will make learning everything else easier.</p>
+                </div>
+                <div class="advice-item">
+                    <h3><i class="fas fa-project-diagram"></i> Build Projects</h3>
+                    <p>The best way to learn is by doing. Start with small projects and gradually increase complexity. Building real applications will teach you more than just following tutorials.</p>
+                </div>
+                <div class="advice-item">
+                    <h3><i class="fas fa-question-circle"></i> Learn to Debug</h3>
+                    <p>Debugging is a crucial skill. Learn how to use debugging tools, read error messages, and systematically track down issues in your code.</p>
+                </div>
+            </div>
+            <div class="advice-content" id="career-content">
+                <div class="advice-item">
+                    <h3><i class="fas fa-network-wired"></i> Network Actively</h3>
+                    <p>Attend meetups, contribute to open source, and connect with other developers. Many opportunities come through connections, not just job applications.</p>
+                </div>
+                <div class="advice-item">
+                    <h3><i class="fas fa-code-branch"></i> Contribute to Open Source</h3>
+                    <p>Contributing to open source projects gives you real-world experience, exposes you to quality code, and looks great on your resume.</p>
+                </div>
+                <div class="advice-item">
+                    <h3><i class="fas fa-comments"></i> Communication is Key</h3>
+                    <p>Technical skills are important, but so is communication. Learn to explain technical concepts clearly to both technical and non-technical people.</p>
+                </div>
+            </div>
+            <div class="advice-content" id="productivity-content">
+                <div class="advice-item">
+                    <h3><i class="fas fa-keyboard"></i> Learn Your Tools</h3>
+                    <p>Invest time in mastering your development environment, IDE, and productivity tools. Keyboard shortcuts and automation can save you hundreds of hours.</p>
+                </div>
+                <div class="advice-item">
+                    <h3><i class="fas fa-tasks"></i> Break Problems Down</h3>
+                    <p>When facing a complex problem, break it into smaller, manageable pieces. Solve each piece one at a time rather than getting overwhelmed.</p>
+                </div>
+                <div class="advice-item">
+                    <h3><i class="fas fa-clock"></i> Time Management</h3>
+                    <p>Use techniques like Pomodoro or time blocking to stay focused. Learn to estimate tasks realistically and communicate when deadlines are at risk.</p>
+                </div>
+            </div>
+            <div class="advice-content" id="mindset-content">
+                <div class="advice-item">
+                    <h3><i class="fas fa-brain"></i> Embrace the Growth Mindset</h3>
+                    <p>View challenges as opportunities to learn rather than obstacles. Everyone starts somewhere, and consistent effort leads to improvement.</p>
+                </div>
+                <div class="advice-item">
+                    <h3><i class="fas fa-hands-helping"></i> Ask for Help</h3>
+                    <p>Don't struggle alone for too long. Learn how to ask good questions and seek help when needed, but always try to solve problems yourself first.</p>
+                </div>
+                <div class="advice-item">
+                    <h3><i class="fas fa-heart"></i> Take Care of Yourself</h3>
+                    <p>Burnout is real in this field. Take breaks, exercise, and maintain hobbies outside of coding. Your best work comes when you're rested and healthy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MasterHub_Coding</h3>
+                    <p>Your one-stop resource for learning to code and advancing your development career.</p>
+                    <div class="social-icons">
+                        <a href="https://www.x.com/incognito_xr"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.github.com/xrunmer"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/xr_incognito"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/255749246701?text=Hello"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#tutorials">Tutorials</a></li>
+                        <li><a href="#books">Books</a></li>
+                        <li><a href="#cheatsheets">Cheat Sheets</a></li>
+                        <li><a href="#advice">Career Advice</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <a href="contacts.html" style="color: white; text-decoration: none;">
+                        <h3>Contact</h3></a>
+                        <p><i class="fas fa-envelope"></i> maxterabhi@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +255 (0) 749-246-701</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 006 Kihesa, Iringa</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2020-2025 incognito.All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Slideshow functionality
+        const slideshow = document.getElementById('slideshow');
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('slide-dots');
+        let currentSlide = 0;
+        const slideCount = slides.length;
+
+        // Create dots
+        for (let i = 0; i < slideCount; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+
+        const dots = document.querySelectorAll('.dot');
+
+        function goToSlide(slideIndex) {
+            slideshow.style.transform = `translateX(-${slideIndex * 100}%)`;
+            currentSlide = slideIndex;
+            updateDots();
+        }
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        document.getElementById('next-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slideCount;
+            goToSlide(currentSlide);
+        });
+
+        document.getElementById('prev-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+            goToSlide(currentSlide);
+        });
+
+        // Auto-advance slides
+        let slideInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % slideCount;
+            goToSlide(currentSlide);
+        }, 5000);
+
+        // Pause on hover
+        slideshow.parentElement.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        slideshow.parentElement.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slideCount;
+                goToSlide(currentSlide);
+            }, 5000);
+        });
+
+        // Advice tabs functionality
+        const adviceTabs = document.querySelectorAll('.advice-tab');
+        adviceTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                adviceTabs.forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.advice-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(`${tabId}-content`).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            alert(`Thank you for subscribing with ${email}! You'll receive our next newsletter soon.`);
+            this.querySelector('input').value = '';
+        });
+    </script>
+</body>
+</html>

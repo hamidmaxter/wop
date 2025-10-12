@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | Green Technology: Building a Sustainable Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #10b981;
+            --secondary: #059669;
+            --accent: #3b82f6;
+            --energy: #f59e0b;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --gradient-energy: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --green-glow: 0 0 15px rgba(16, 185, 129, 0.5);
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-image: 
+                radial-gradient(circle at 5% 15%, rgba(16, 185, 129, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 95% 85%, rgba(59, 130, 246, 0.05) 0%, transparent 20%),
+                linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.9));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.7)), 
+                        url('gr.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: var(--green-glow);
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #a7f3d0, #6ee7b7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--green-glow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+        }
+
+        .btn-energy {
+            background: var(--gradient-energy);
+        }
+
+        /* Navigation */
+        .article-nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .article-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .article-nav li {
+            margin: 0 1rem;
+        }
+
+        .article-nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .article-nav a:hover {
+            color: var(--primary);
+        }
+
+        .article-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .article-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Article Sections */
+        .article-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: var(--green-glow);
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .text-content {
+            padding-right: 1rem;
+        }
+
+        .text-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .text-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .image-content {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            transition: all 0.3s;
+        }
+
+        .image-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .image-content:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-content:hover .image-caption {
+            opacity: 1;
+        }
+
+        /* Energy Visualization */
+        .energy-visualization {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: var(--green-glow);
+        }
+
+        .energy-container {
+            width: 100%;
+            height: 300px;
+            background: rgba(10, 10, 25, 0.8);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .energy-source {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.5s;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+        }
+
+        .energy-flow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--primary), var(--accent), var(--primary));
+            opacity: 0.3;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .energy-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .energy-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .energy-info.active {
+            display: block;
+        }
+
+        /* Green Tech Fields */
+        .tech-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .field-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            position: relative;
+        }
+
+        .field-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .field-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .field-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.1);
+            font-size: 2rem;
+        }
+
+        .field-content {
+            padding: 1.5rem;
+        }
+
+        .field-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Applications */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .application-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .application-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .app-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .app-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .application-card:hover .app-image img {
+            transform: scale(1.1);
+        }
+
+        .app-content {
+            padding: 1.5rem;
+        }
+
+        .app-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Impact Visualization */
+        .impact-visualization {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: var(--green-glow);
+        }
+
+        .impact-chart {
+            width: 100%;
+            height: 300px;
+            background: rgba(10, 10, 25, 0.8);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+
+        .impact-bar {
+            width: 60px;
+            background: var(--gradient);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: height 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 1rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+
+        .impact-bar.renewable {
+            background: var(--gradient);
+            height: 80%;
+        }
+
+        .impact-bar.emissions {
+            background: var(--gradient-energy);
+            height: 40%;
+        }
+
+        .impact-bar.efficiency {
+            background: var(--gradient-accent);
+            height: 70%;
+        }
+
+        .impact-bar.jobs {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            height: 60%;
+        }
+
+        .impact-label {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .impact-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .impact-info.active {
+            display: block;
+        }
+
+        /* Carbon Calculator */
+        .calculator {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: var(--green-glow);
+        }
+
+        .calculator-inputs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .input-group input, .input-group select {
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .calculator-result {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .calculator-result.active {
+            display: block;
+        }
+
+        .carbon-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            box-shadow: var(--green-glow);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--darker);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+            box-shadow: var(--green-glow);
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            position: relative;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.7)), 
+                        url('tech-6b.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .article-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .article-nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Green Technology: Building a Sustainable Future</h1>
+                <p>Exploring innovative solutions that reduce environmental impact, conserve resources, and create a cleaner, healthier planet for future generations.</p>
+                <a href="#intro" class="btn">Explore Green Tech</a>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <!-- Introduction Section -->
+    <section id="intro" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What is Green Technology?</h2>
+                <p>Innovations that minimize environmental impact and promote sustainability</p>
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Sustainable Solutions for a Changing Planet</h3>
+                    <p>Green technology, also known as environmental technology or clean technology, refers to the application of environmental science and monitoring to conserve the natural environment and resources, and to curb the negative impacts of human involvement.</p>
+                    <p>This field encompasses a continuously evolving group of methods and materials, from techniques for generating energy to non-toxic cleaning products. The goal of green technology is to protect the environment, repair damage done to the environment in the past, and conserve Earth's natural resources.</p>
+                    <p>Green technology has become a booming industry that has attracted enormous amounts of investment capital as society increasingly recognizes the need to transition to more sustainable practices.</p>
+                </div>
+                <div class="image-content">
+                    <img src="gr1.jpeg" alt="Green Technology">
+                    <div class="image-caption">Wind turbines and solar panels represent the shift toward renewable energy sources</div>
+                </div>
+            </div>
+
+            <div class="energy-visualization">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Renewable Energy Sources</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem;">Explore different renewable energy technologies and their benefits</p>
+                
+                <div class="energy-container">
+                    <div class="energy-source" id="energySource">
+                        <div class="energy-flow"></div>
+                        Solar
+                    </div>
+                </div>
+                
+                <div class="energy-controls">
+                    <button class="btn" id="solarBtn">Solar Power</button>
+                    <button class="btn" id="windBtn">Wind Power</button>
+                    <button class="btn btn-accent" id="hydroBtn">Hydropower</button>
+                </div>
+                
+                <div class="energy-info" id="energyInfo">
+                    <h4>Solar Power</h4>
+                    <p>Solar power harnesses energy from the sun using photovoltaic cells or concentrated solar power systems. It's one of the fastest-growing renewable energy sources, with costs decreasing dramatically over the past decade. Solar energy produces no emissions during operation and can be deployed at various scales from residential rooftops to utility-scale solar farms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="article-section" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Green Technology Fields</h2>
+                <p>Key areas of innovation in sustainable technology</p>
+            </div>
+            
+            <div class="tech-fields">
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="field-content">
+                        <h3>Renewable Energy</h3>
+                        <p>Technologies that generate energy from renewable sources like solar, wind, hydro, geothermal, and biomass. These sources produce little to no greenhouse gas emissions.</p>
+                    </div>
+                </div>
+                
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="field-content">
+                        <h3>Waste Management</h3>
+                        <p>Innovations in recycling, composting, and waste-to-energy technologies that reduce landfill waste and recover valuable materials from the waste stream.</p>
+                    </div>
+                </div>
+                
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="field-content">
+                        <h3>Green Building</h3>
+                        <p>Construction techniques and materials that increase energy efficiency, reduce resource consumption, and create healthier living environments.</p>
+                    </div>
+                </div>
+                
+                <div class="field-card">
+                    <div class="field-icon">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <div class="field-content">
+                        <h3>Clean Transportation</h3>
+                        <p>Electric vehicles, hydrogen fuel cells, and improved public transportation systems that reduce emissions from the transportation sector.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-grid" style="margin-top: 3rem;">
+                <div class="image-content">
+                    <img src="gr2.jpeg" alt="Green Building">
+                    <div class="image-caption">Green buildings incorporate energy-efficient design and sustainable materials</div>
+                </div>
+                <div class="text-content">
+                    <h3>Emerging Green Technologies</h3>
+                    <p>As technology advances, new sustainable solutions continue to emerge:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li><strong>Carbon Capture:</strong> Technologies that remove CO2 from the atmosphere or prevent it from entering</li>
+                        <li><strong>Smart Grids:</strong> Intelligent electricity networks that optimize energy distribution and consumption</li>
+                        <li><strong>Vertical Farming:</strong> Growing crops in stacked layers to reduce land use and transportation</li>
+                        <li><strong>Blue Energy:</strong> Generating power from the difference in salt concentration between river and sea water</li>
+                        <li><strong>Bio-plastics:</strong> Plastics derived from renewable biomass sources instead of petroleum</li>
+                    </ul>
+                    <p>These innovations represent the cutting edge of sustainable technology development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Green Technology Applications</h2>
+                <p>Real-world implementations of sustainable technologies</p>
+            </div>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="gr3.jpg" alt="Smart Grid">
+                    </div>
+                    <div class="app-content">
+                        <h3>Smart Grid Technology</h3>
+                        <p>Intelligent electricity networks that use digital communication technology to detect and react to local changes in usage, improving efficiency and reliability.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="gr4.jpg" alt="Electric Vehicles">
+                    </div>
+                    <div class="app-content">
+                        <h3>Electric Vehicles</h3>
+                        <p>Cars, buses, and trucks powered by electricity instead of fossil fuels, significantly reducing transportation emissions and improving urban air quality.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="gr5.jpeg" alt="Vertical Farming">
+                    </div>
+                    <div class="app-content">
+                        <h3>Vertical Farming</h3>
+                        <p>Growing crops in vertically stacked layers indoors, using controlled-environment agriculture technology to optimize plant growth with minimal resources.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="gr6.jpeg" alt="Water Purification">
+                    </div>
+                    <div class="app-content">
+                        <h3>Advanced Water Purification</h3>
+                        <p>Energy-efficient systems that provide clean drinking water while minimizing chemical use and energy consumption in the treatment process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="article-section" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Impact of Green Technology</h2>
+                <p>How sustainable technologies are transforming our world</p>
+            </div>
+            
+            <div class="impact-visualization">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Environmental and Economic Impact</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem;">Visualizing the positive effects of green technology adoption</p>
+                
+                <div class="impact-chart">
+                    <div class="impact-bar renewable">
+                        Renewable Energy
+                        <div class="impact-label">80% Growth</div>
+                    </div>
+                    <div class="impact-bar emissions">
+                        CO2 Reduction
+                        <div class="impact-label">40% Less</div>
+                    </div>
+                    <div class="impact-bar efficiency">
+                        Energy Efficiency
+                        <div class="impact-label">70% Improvement</div>
+                    </div>
+                    <div class="impact-bar jobs">
+                        Green Jobs
+                        <div class="impact-label">60% Increase</div>
+                    </div>
+                </div>
+                
+                <div class="impact-info" id="impactInfo">
+                    <h4>Transformative Impact</h4>
+                    <p>Green technology is driving significant environmental and economic changes worldwide. The rapid growth in renewable energy capacity is reducing dependence on fossil fuels, while improvements in energy efficiency are lowering overall consumption. These changes are creating new job opportunities in the green economy while helping to mitigate climate change through reduced emissions.</p>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Environmental Benefits</h3>
+                    <p>Green technology delivers significant environmental advantages:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Reduced greenhouse gas emissions and air pollution</li>
+                        <li>Conservation of water resources through efficient technologies</li>
+                        <li>Decreased waste through recycling and circular economy approaches</li>
+                        <li>Preservation of ecosystems and biodiversity</li>
+                        <li>Reduced dependence on finite natural resources</li>
+                    </ul>
+                    
+                    <h3>Economic Opportunities</h3>
+                    <p>The transition to green technology creates new economic possibilities:</p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Creation of jobs in renewable energy, efficiency, and sustainability</li>
+                        <li>Reduced energy costs through efficiency and local generation</li>
+                        <li>New markets for green products and services</li>
+                        <li>Enhanced energy security through diversified sources</li>
+                        <li>Reduced healthcare costs from improved air and water quality</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="grp.jpeg" alt="Green Tech Impact">
+                    <div class="image-caption">Green technology is creating cleaner cities and healthier environments</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Calculator Section -->
+    <section id="calculator" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Carbon Footprint Calculator</h2>
+                <p>Estimate your environmental impact and discover ways to reduce it</p>
+            </div>
+            
+            <div class="calculator">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Calculate Your Carbon Footprint</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem;">Enter your information to estimate your annual carbon emissions</p>
+                
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="electricity">Monthly Electricity Usage (kWh)</label>
+                        <input type="number" id="electricity" placeholder="e.g., 500">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="transportation">Weekly Driving Distance (miles)</label>
+                        <input type="number" id="transportation" placeholder="e.g., 100">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="flights">Flights per Year (short-haul)</label>
+                        <input type="number" id="flights" placeholder="e.g., 2">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="diet">Diet Type</label>
+                        <select id="diet">
+                            <option value="vegan">Vegan</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="meatLight">Meat - Light</option>
+                            <option value="meatHeavy">Meat - Heavy</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button class="btn" id="calculateBtn" style="width: 100%;">Calculate Carbon Footprint</button>
+                
+                <div class="calculator-result" id="calculatorResult">
+                    <h4>Your Estimated Annual Carbon Footprint</h4>
+                    <div class="carbon-value" id="carbonValue">0 tons CO₂</div>
+                    <p>This is equivalent to <span id="equivalentValue">0</span> trees needed to absorb your carbon emissions.</p>
+                    <p><strong>Tips to reduce your footprint:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Switch to renewable energy sources</li>
+                        <li>Use public transportation or carpool when possible</li>
+                        <li>Reduce air travel and choose direct flights</li>
+                        <li>Eat more plant-based meals</li>
+                        <li>Improve home insulation and energy efficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future" class="article-section" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Future of Green Technology</h2>
+                <p>Emerging trends and future possibilities in sustainable technology</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="image-content">
+                    <img src="gf.jpg" alt="Future of Green Tech">
+                    <div class="image-caption">Advanced technologies will enable more efficient resource use and cleaner energy</div>
+                </div>
+                <div class="text-content">
+                    <h3>Next-Generation Renewables</h3>
+                    <p>Future renewable energy technologies will be more efficient, affordable, and integrated. Perovskite solar cells, floating offshore wind farms, and enhanced geothermal systems will expand our clean energy capacity.</p>
+                    
+                    <h3>Circular Economy</h3>
+                    <p>The shift from a linear "take-make-waste" model to a circular economy will minimize waste and maximize resource efficiency through better product design, reuse, and recycling.</p>
+                    
+                    <h3>Smart Cities</h3>
+                    <p>Integrated urban systems will optimize energy use, transportation, water management, and waste handling through IoT sensors, AI, and data analytics.</p>
+                    
+                    <h3>Carbon Removal Technologies</h3>
+                    <p>Direct air capture, enhanced weathering, and other carbon removal technologies will become increasingly important for achieving climate goals and reversing atmospheric CO2 accumulation.</p>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1970s: Environmental Awareness</h3>
+                        <p>The first Earth Day in 1970 marks the beginning of modern environmentalism and increased interest in clean technologies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>1990s: Early Renewables</h3>
+                        <p>Wind and solar power begin to gain traction as viable energy sources, though costs remain high compared to fossil fuels.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2000s: Climate Focus</h3>
+                        <p>Growing concern about climate change drives increased investment in renewable energy and energy efficiency technologies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2010s: Cost Parity</h3>
+                        <p>Renewable energy reaches cost parity with fossil fuels in many markets, leading to rapid adoption worldwide.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2020s: Mainstream Adoption</h3>
+                        <p>Electric vehicles become mainstream, renewable energy dominates new capacity additions, and corporations make ambitious sustainability commitments.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2030s: Net Zero Transition</h3>
+                        <p>Countries and companies work toward net-zero emissions goals through advanced clean technologies and systemic changes across all sectors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Green Tech Insights</h3>
+                    <p>Exploring innovative sustainable technologies that are building a cleaner, healthier planet for future generations.</p>
+                    
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#technologies">Technologies</a></li>
+                        <li><a href="#applications">Applications</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#calculator">Calculator</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            <div class="copyright">
+                <p>&copy; 2020-2025 incognito. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Energy Visualization
+        document.addEventListener('DOMContentLoaded', function() {
+            const energySource = document.getElementById('energySource');
+            const energyInfo = document.getElementById('energyInfo');
+            const solarBtn = document.getElementById('solarBtn');
+            const windBtn = document.getElementById('windBtn');
+            const hydroBtn = document.getElementById('hydroBtn');
+            
+            solarBtn.addEventListener('click', function() {
+                energySource.innerHTML = '<div class="energy-flow"></div>Solar';
+                energySource.style.background = 'var(--gradient-energy)';
+                energyInfo.innerHTML = `
+                    <h4>Solar Power</h4>
+                    <p>Solar power harnesses energy from the sun using photovoltaic cells or concentrated solar power systems. It's one of the fastest-growing renewable energy sources, with costs decreasing dramatically over the past decade. Solar energy produces no emissions during operation and can be deployed at various scales from residential rooftops to utility-scale solar farms.</p>
+                    <p><strong>Key Benefits:</strong> Abundant resource, no fuel costs, modular deployment, silent operation</p>
+                `;
+                energyInfo.classList.add('active');
+            });
+            
+            windBtn.addEventListener('click', function() {
+                energySource.innerHTML = '<div class="energy-flow"></div>Wind';
+                energySource.style.background = 'var(--gradient-accent)';
+                energyInfo.innerHTML = `
+                    <h4>Wind Power</h4>
+                    <p>Wind power converts the kinetic energy of wind into electricity using wind turbines. Onshore and offshore wind farms can generate significant amounts of clean electricity. Modern turbines are highly efficient and can operate in a wide range of wind conditions. Wind energy is now one of the most cost-competitive energy sources in many regions.</p>
+                    <p><strong>Key Benefits:</strong> Cost-competitive, large-scale potential, land can often still be used for agriculture</p>
+                `;
+                energyInfo.classList.add('active');
+            });
+            
+            hydroBtn.addEventListener('click', function() {
+                energySource.innerHTML = '<div class="energy-flow"></div>Hydro';
+                energySource.style.background = 'var(--gradient)';
+                energyInfo.innerHTML = `
+                    <h4>Hydropower</h4>
+                    <p>Hydropower generates electricity by harnessing the energy of flowing water. It's one of the oldest and most established renewable energy sources, providing reliable baseload power. Modern hydropower includes not just large dams but also run-of-river systems and pumped storage that can help balance grid fluctuations from intermittent renewables like solar and wind.</p>
+                    <p><strong>Key Benefits:</strong> Reliable baseload power, energy storage capability, flood control benefits</p>
+                `;
+                energyInfo.classList.add('active');
+            });
+            
+            // Initialize with solar
+            solarBtn.click();
+            
+            // Carbon Calculator
+            const calculateBtn = document.getElementById('calculateBtn');
+            const calculatorResult = document.getElementById('calculatorResult');
+            const carbonValue = document.getElementById('carbonValue');
+            const equivalentValue = document.getElementById('equivalentValue');
+            
+            calculateBtn.addEventListener('click', function() {
+                const electricity = parseFloat(document.getElementById('electricity').value) || 0;
+                const transportation = parseFloat(document.getElementById('transportation').value) || 0;
+                const flights = parseFloat(document.getElementById('flights').value) || 0;
+                const diet = document.getElementById('diet').value;
+                
+                // Calculate carbon footprint (simplified calculation)
+                let footprint = 0;
+                
+                // Electricity (assuming average US grid)
+                footprint += electricity * 12 * 0.7; // Monthly to annual, kg CO2 per kWh
+                
+                // Transportation (assuming average car)
+                footprint += transportation * 52 * 0.4; // Weekly to annual, kg CO2 per mile
+                
+                // Flights (short-haul)
+                footprint += flights * 200; // kg CO2 per flight
+                
+                // Diet
+                const dietFactors = {
+                    'vegan': 1.5,
+                    'vegetarian': 1.7,
+                    'meatLight': 2.2,
+                    'meatHeavy': 2.7
+                };
+                footprint += dietFactors[diet] * 1000; // Annual diet emissions in kg
+                
+                // Convert to tons
+                const tons = (footprint / 1000).toFixed(1);
+                
+                // Calculate trees needed (simplified: one tree absorbs about 21 kg CO2 per year)
+                const trees = Math.ceil(footprint / 21);
+                
+                carbonValue.textContent = `${tons} tons CO₂`;
+                equivalentValue.textContent = trees;
+                calculatorResult.classList.add('active');
+            });
+            
+            // Impact visualization
+            const impactInfo = document.getElementById('impactInfo');
+            impactInfo.classList.add('active');
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('.article-nav a, .btn').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#' || !targetId.startsWith('#')) return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animate impact bars on scroll
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const impactBars = document.querySelectorAll('.impact-bar');
+                        impactBars.forEach(bar => {
+                            // Reset heights to trigger animation
+                            const height = bar.style.height;
+                            bar.style.height = '0';
+                            setTimeout(() => {
+                                bar.style.height = height;
+                            }, 100);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            const impactVisualization = document.querySelector('.impact-visualization');
+            if (impactVisualization) {
+                observer.observe(impactVisualization);
+            }
+        });
+    </script>
+</body>
+</html>

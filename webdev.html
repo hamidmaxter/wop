@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub_Webdev | Professional Web Development</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            --gradient-2: linear-gradient(135deg, #4895ef 0%, #4cc9f0 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(120deg, #f0f4f8, #e2e8f0);
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Pattern Overlays */
+        .pattern-overlay {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pattern-overlay::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+            background-size: 30px 30px;
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        .pattern-overlay-dark::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="rgba(0,0,0,0.1)" stroke-width="1"/></svg>');
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: 
+                linear-gradient(rgba(67, 97, 238, 0.85), rgba(58, 12, 163, 0.9)), 
+                url('qwe.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 12rem 0 8rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.2rem;
+            background: var(--gradient-2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.4s, box-shadow 0.4s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            background: var(--gradient);
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        .service-content {
+            padding: 2.2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 1.8rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: 
+                linear-gradient(rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.95)),
+                url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.4s;
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 1.8rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-badge {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background: var(--gradient-2);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Order Section */
+        .order-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .order-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .order-info {
+            flex: 1;
+            min-width: 300px;
+            background: var(--gradient);
+            padding: 2.5rem;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(72, 149, 239, 0.2);
+            background: white;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .order-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .order-info h4 {
+            font-size: 1.3rem;
+            margin: 1.8rem 0 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .order-info h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .order-info ul {
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .order-info li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .order-info li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .pricing p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .pricing span {
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: 
+                linear-gradient(rgba(248, 249, 250, 0.95), rgba(248, 249, 250, 0.97)),
+                url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: var(--gradient);
+            padding: 2.5rem;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.2rem;
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-method:hover .contact-icon {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.25);
+        }
+
+        .contact-details h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            opacity: 0.9;
+        }
+
+        .contact-form .form-group label {
+            color: var(--dark);
+        }
+
+        /* Footer */
+        footer {
+            background: 
+                linear-gradient(rgba(33, 37, 41, 0.95), rgba(33, 37, 41, 0.98)),
+                url('footer.jpeg');
+            background-size: cover;
+            color: white;
+            padding: 5rem 0 2.5rem;
+            position: relative;
+        }
+
+        .footer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: inline-block;
+            padding: 0.2rem 0;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #adb5bd;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Formspree Success Message */
+        .formspree-success {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 75px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 75px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 3rem;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1.8rem 0;
+            }
+
+            .hero {
+                padding: 10rem 0 5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                display: block;
+                margin: 1.2rem auto;
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 4.5rem 0;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .order-form,
+            .order-info,
+            .contact-info,
+            .contact-form {
+                padding: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="weblearn.html" class="logo">incognito<span></span></a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="home-final.html">Home</a></li>
+                    <li><a href="portfolio2.html">Portfolio</a></li>
+                    <li><a href="#order">Order Website</a></li>
+                    <li><a href="contacts.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Transform Your Digital Presence</h1>
+                <p>We create stunning, responsive websites that elevate your business. Professional web development services tailored to your unique needs.</p>
+                <div class="hero-btns">
+                    <a href="#order" class="btn">Order Website Now</a>
+                    <a href="portfolio2.html" class="btn btn-outline">View Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>What can you get?</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="photo1.jpeg" alt="Corporate Website">
+                    </div>
+                    
+                    <div class="portfolio-content">
+                        <h3>Corporate Business Website</h3>
+                        <p>A professional website for a financial consulting firm with client portal and dashboard.</p>
+                        <a href="#order" class="btn">Order Now</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="photo2.jpeg" alt="E-commerce Store">
+                    </div>
+                    
+                    <div class="portfolio-content">
+                        <h3>Fashion E-commerce Store</h3>
+                        <p>Online clothing store with product filters, wishlist, and secure payment integration.</p>
+                        <a href="#order" class="btn">Order now</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="footer.jpeg" alt="Restaurant Website">
+                    </div>
+                    
+                    <div class="portfolio-content">
+                        <h3>Restaurant & Food Delivery</h3>
+                        <p>Restaurant website with online ordering system and real-time delivery tracking.</p>
+                        <a href="#order" class="btn">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="order">
+        <div class="container">
+            <div class="section-title">
+                <h2>Order Your Website</h2>
+            </div>
+            <div class="order-container">
+                <form id="order-form" action="https://formspree.io/f/xqadrzno" method="POST">
+                    <div class="formspree-success" id="formspree-success">
+                        <i class="fas fa-check-circle"></i> Thank you for your order request! We'll contact you within 24 hours.
+                    </div>
+                    
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Project Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (555) 123-4567">
+                        </div>
+                        <div class="form-group">
+                            <label for="website-type">Website Type</label>
+                            <select id="website-type" name="website-type" class="form-control" required>
+                                <option value="">Select Website Type</option>
+                                <option value="business">Business Website</option>
+                                <option value="ecommerce">E-commerce Store</option>
+                                <option value="business">Restaurant Website</option>
+                                <option value="portfolio">Portfolio Website</option>
+                                <option value="blog">Blog/News Site</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="features">Desired Features</label>
+                        <textarea id="features" name="features" class="form-control" placeholder="Describe the features you need (e.g., contact form, gallery, user accounts, etc.)" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget" class="form-control" required>
+                            <option value="">Select Budget Range</option>
+                            <option value="500-1000">less than $50</option>
+                            <option value="1000-3000">$50 - $100</option>
+                            <option value="3000-5000">$100 - $200</option>
+                            <option value="5000+">$200+</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="_subject" value="New Website Order Request from WebCraft">
+                    <input type="hidden" name="_replyto" value="">
+                    <button type="submit" class="btn" style="width: 100%;">Submit Order Request</button>
+                </form>
+                <div class="order-info">
+                    <h3>What to Expect</h3>
+                    <p>Once you submit your order, we'll get back to you within 24 hours to discuss your project in detail.</p>
+                    
+                    <h4>Our Process:</h4>
+                    <ul>
+                        <li>We'll discuss your requirements and goals</li>
+                        <li>Wireframes and project roadmap</li>
+                        <li>Mockups and visual design approval</li>
+                        <li>Building your website</li>
+                        <li>Quality assurance and revisions</li>
+                        <li>Deployment and training</li>
+                    </ul>
+                    
+                    <div class="pricing">
+                        <h4>Starting Prices:</h4>
+                        <p><span>Basic Website:</span> <span>$50+</span></p>
+                        <p><span>E-commerce Store:</span> <span>$100+</span></p>
+                        <p><span>Custom Web Applications:</span> <span>$200+</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-overlay"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>incognito WebDev</h3>
+                    <p>Professional web development services tailored to your business needs. 
+                        We create stunning, responsive websites that convert visitors into customers.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/master brand"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.x.com/xr_incognito"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/incognito_xr"><i class="fab fa-instagram"></i></a>
+                        
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        
+                        <li><a href="portfolio2.html">Portfolio</a></li>
+                        <li><a href="#order">Order Website</a></li>
+                        <li><a href="contacts.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li>Website Development</li>
+                        <li>E-commerce Solutions</li>
+                        <li>Responsive Design</li>
+                        <li>Website Maintenance</li>
+                        <li>SEO Optimization</li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="copyright">
+                <p>&copy; 2020-2025 incognito. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+            mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Formspree form handling
+        const orderForm = document.getElementById('order-form');
+        const contactForm = document.getElementById('contact-form');
+        const newsletterForm = document.getElementById('newsletter-form');
+        
+        // Order form submission
+        orderForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Set the reply-to field
+            const emailInput = orderForm.querySelector('input[name="email"]');
+            orderForm.querySelector('input[name="_replyto"]').value = emailInput.value;
+            
+            // Simple validation
+            let isValid = true;
+            orderForm.querySelectorAll('[required]').forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            try {
+                const response = await fetch(orderForm.action, {
+                    method: 'POST',
+                    body: new FormData(orderForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    document.getElementById('formspree-success').style.display = 'block';
+                    orderForm.reset();
+                    
+                    // Scroll to success message
+                    document.getElementById('formspree-success').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was a problem submitting your form. Please try again.');
+            }
+        });
+        
+        // Contact form submission
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Simple validation
+            let isValid = true;
+            contactForm.querySelectorAll('[required]').forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    document.getElementById('contact-success').style.display = 'block';
+                    contactForm.reset();
+                    
+                    // Scroll to success message
+                    document.getElementById('contact-success').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was a problem submitting your form. Please try again.');
+            }
+        });
+        
+        // Newsletter form submission
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Simple validation
+            const emailInput = newsletterForm.querySelector('input[name="email"]');
+            if (!emailInput.value.trim()) {
+                emailInput.style.borderColor = 'red';
+                alert('Please enter your email address.');
+                return;
+            }
+            
+            try {
+                const response = await fetch(newsletterForm.action, {
+                    method: 'POST',
+                    body: new FormData(newsletterForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    alert('Thank you for subscribing to our newsletter!');
+                    newsletterForm.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was a problem with your subscription. Please try again.');
+            }
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

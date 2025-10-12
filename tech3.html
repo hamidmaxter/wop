@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | Cybersecurity: Protecting the Digital Frontier</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #ef4444;
+            --warning: #f59e0b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            --gradient-accent: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        body {
+            background-color: #0f172a;
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)), 
+                        url('cyber2.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #93c5fd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-accent {
+            background: var(--gradient-accent);
+        }
+
+        /* Navigation */
+        .article-nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .article-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .article-nav li {
+            margin: 0 1rem;
+        }
+
+        .article-nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .article-nav a:hover {
+            color: var(--primary);
+        }
+
+        .article-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .article-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Article Sections */
+        .article-section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .text-content {
+            padding-right: 1rem;
+        }
+
+        .text-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .text-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .image-content {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .image-content:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-content:hover .image-caption {
+            opacity: 1;
+        }
+
+        /* Threat Level Indicator */
+        .threat-indicator {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .threat-levels {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .threat-level {
+            text-align: center;
+            flex: 1;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 0 0.5rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .threat-level:hover {
+            transform: translateY(-5px);
+        }
+
+        .threat-level.low {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid rgba(34, 197, 94, 0.5);
+        }
+
+        .threat-level.medium {
+            background: rgba(234, 179, 8, 0.2);
+            border: 1px solid rgba(234, 179, 8, 0.5);
+        }
+
+        .threat-level.high {
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid rgba(249, 115, 22, 0.5);
+        }
+
+        .threat-level.critical {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+        }
+
+        .threat-level.active {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .threat-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .threat-info.active {
+            display: block;
+        }
+
+        /* Protection Methods */
+        .protection-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .protection-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .protection-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .protection-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.2);
+            font-size: 2rem;
+        }
+
+        .protection-content {
+            padding: 1.5rem;
+        }
+
+        .protection-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat-description {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Password Checker */
+        .password-checker {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .password-input {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+
+        .password-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px 0 0 5px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .password-input button {
+            padding: 0 1.5rem;
+            background: var(--gradient);
+            border: none;
+            border-radius: 0 5px 5px 0;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .password-input button:hover {
+            background: var(--secondary);
+        }
+
+        .password-strength {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .strength-weak {
+            background: #ef4444;
+            width: 25%;
+        }
+
+        .strength-medium {
+            background: #f59e0b;
+            width: 50%;
+        }
+
+        .strength-strong {
+            background: #10b981;
+            width: 75%;
+        }
+
+        .strength-very-strong {
+            background: #3b82f6;
+            width: 100%;
+        }
+
+        .strength-feedback {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)), 
+                        url('tech-6b.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+            border-top: 3px solid var(--primary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .article-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .article-nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .threat-levels {
+                flex-direction: column;
+            }
+            
+            .threat-level {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Cybersecurity: Protecting the Digital Frontier</h1>
+                <p>In an increasingly connected world, understanding cybersecurity is no longer optional—it's essential for protecting our digital lives, businesses, and critical infrastructure.</p>
+                <a href="#intro" class="btn">Explore Cybersecurity</a>
+            </div>
+        </div>
+    </header>
+
+   
+
+    <!-- Introduction Section -->
+    <section id="intro" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What is Cybersecurity?</h2>
+                <p>Understanding the fundamentals of protecting digital systems, networks, and data from malicious attacks</p>
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>The Digital Defense Frontier</h3>
+                    <p>Cybersecurity refers to the practice of protecting systems, networks, and programs from digital attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive information; extorting money from users; or interrupting normal business processes.</p>
+                    <p>Implementing effective cybersecurity measures is particularly challenging today because there are more devices than people, and attackers are becoming more innovative.</p>
+                    <p>A successful cybersecurity approach has multiple layers of protection spread across the computers, networks, programs, or data that one intends to keep safe. In an organization, the people, processes, and technology must all complement one another to create an effective defense from cyber attacks.</p>
+                </div>
+                <div class="image-content">
+                    <img src="cyber3.jpg" alt="Cybersecurity Concept">
+                    <div class="image-caption">Cybersecurity involves protecting networks, systems, and data from digital attacks</div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4.1B</div>
+                    <div class="stat-description">Records exposed in data breaches in 2022</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$6T</div>
+                    <div class="stat-description">Estimated global cybercrime costs annually</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">94%</div>
+                    <div class="stat-description">Malware delivered via email</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">43%</div>
+                    <div class="stat-description">Cyber attacks target small businesses</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cyber Threats Section -->
+    <section id="threats" class="article-section" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Common Cyber Threats</h2>
+                <p>Understanding the landscape of digital threats is the first step toward protection</p>
+            </div>
+            
+            <div class="threat-indicator">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">Global Cyber Threat Levels</h3>
+                <div class="threat-levels">
+                    <div class="threat-level low" data-level="low">
+                        <h4>Low</h4>
+                        <p>Minimal activity</p>
+                    </div>
+                    <div class="threat-level medium" data-level="medium">
+                        <h4>Medium</h4>
+                        <p>Moderate activity</p>
+                    </div>
+                    <div class="threat-level high" data-level="high">
+                        <h4>High</h4>
+                        <p>Significant activity</p>
+                    </div>
+                    <div class="threat-level critical" data-level="critical">
+                        <h4>Critical</h4>
+                        <p>Severe activity</p>
+                    </div>
+                </div>
+                
+                <div class="threat-info" id="low-info">
+                    <h4>Low Threat Level</h4>
+                    <p>At this level, cyber threats are minimal with no significant attacks reported globally. Standard security practices are sufficient for protection.</p>
+                </div>
+                <div class="threat-info" id="medium-info">
+                    <h4>Medium Threat Level</h4>
+                    <p>Increased cyber activity with some coordinated attacks. Organizations should review security protocols and ensure all systems are updated.</p>
+                </div>
+                <div class="threat-info" id="high-info">
+                    <h4>High Threat Level</h4>
+                    <p>Significant cyber attacks are occurring globally. Organizations should implement enhanced security measures and monitor systems closely.</p>
+                </div>
+                <div class="threat-info" id="critical-info">
+                    <h4>Critical Threat Level</h4>
+                    <p>Severe, widespread cyber attacks are impacting critical infrastructure. Immediate defensive actions and heightened security protocols are required.</p>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="image-content">
+                    <img src="th1.jpg" alt="Cyber Threats">
+                    <div class="image-caption">Cyber threats come in many forms, from malware to social engineering attacks</div>
+                </div>
+                <div class="text-content">
+                    <h3>Malware & Ransomware</h3>
+                    <p>Malicious software (malware) is designed to gain unauthorized access or cause damage to a computer. Ransomware is a type of malware that threatens to publish the victim's data or perpetually block access to it unless a ransom is paid.</p>
+                    
+                    <h3>Phishing Attacks</h3>
+                    <p>Phishing is the fraudulent attempt to obtain sensitive information such as usernames, passwords, and credit card details by disguising as a trustworthy entity in electronic communication.</p>
+                    
+                    <h3>DDoS Attacks</h3>
+                    <p>Distributed Denial of Service (DDoS) attacks overwhelm a system's resources, making it unable to respond to service requests and effectively taking it offline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Protection Section -->
+    <section id="protection" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cybersecurity Protection</h2>
+                <p>Essential tools and practices to defend against cyber threats</p>
+            </div>
+            
+            <div class="protection-methods">
+                <div class="protection-card">
+                    <div class="protection-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="protection-content">
+                        <h3>Firewalls</h3>
+                        <p>Network security systems that monitor and control incoming and outgoing network traffic based on predetermined security rules.</p>
+                    </div>
+                </div>
+                
+                <div class="protection-card">
+                    <div class="protection-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="protection-content">
+                        <h3>Encryption</h3>
+                        <p>Converting information or data into a code to prevent unauthorized access, especially during transmission.</p>
+                    </div>
+                </div>
+                
+                <div class="protection-card">
+                    <div class="protection-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="protection-content">
+                        <h3>Multi-Factor Authentication</h3>
+                        <p>Requiring multiple methods of authentication from independent categories of credentials to verify user identity.</p>
+                    </div>
+                </div>
+                
+                <div class="protection-card">
+                    <div class="protection-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="protection-content">
+                        <h3>Backup Solutions</h3>
+                        <p>Regularly copying and archiving data so it can be restored in case of data loss, corruption, or ransomware attack.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="password-checker">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Password Strength Checker</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem;">Test how strong your password is against common attacks</p>
+                
+                <div class="password-input">
+                    <input type="password" id="passwordInput" placeholder="Enter a password to check">
+                    <button id="checkPassword">Check</button>
+                </div>
+                
+                <div class="password-strength">
+                    <div class="strength-bar" id="strengthBar"></div>
+                </div>
+                
+                <div class="strength-feedback" id="strengthFeedback">
+                    Enter a password to check its strength
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices Section -->
+    <section id="best-practices" class="article-section" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cybersecurity Best Practices</h2>
+                <p>Proactive measures to enhance your digital security posture</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>For Individuals</h3>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Use strong, unique passwords for different accounts</li>
+                        <li>Enable multi-factor authentication wherever possible</li>
+                        <li>Keep software and operating systems updated</li>
+                        <li>Be cautious with email attachments and links</li>
+                        <li>Use a reputable antivirus and firewall solution</li>
+                        <li>Regularly back up important data</li>
+                    </ul>
+                    
+                    <h3>For Organizations</h3>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                        <li>Implement a comprehensive security awareness training program</li>
+                        <li>Establish and enforce security policies</li>
+                        <li>Conduct regular security assessments and penetration testing</li>
+                        <li>Implement the principle of least privilege</li>
+                        <li>Develop and test an incident response plan</li>
+                        <li>Secure all endpoints and network perimeters</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="cyber4.jpg" alt="Security Practices">
+                    <div class="image-caption">Implementing security best practices is essential for protection</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Trends Section -->
+    <section id="future" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Future of Cybersecurity</h2>
+                <p>Emerging trends and challenges in the cybersecurity landscape</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="image-content">
+                    <img src="c2.jpg" alt="Future of Cybersecurity">
+                    <div class="image-caption">AI and machine learning are transforming cybersecurity defense and offense</div>
+                </div>
+                <div class="text-content">
+                    <h3>AI-Powered Security</h3>
+                    <p>Artificial intelligence and machine learning are being increasingly used to detect anomalies, identify threats, and respond to incidents faster than humanly possible.</p>
+                    
+                    <h3>Zero Trust Architecture</h3>
+                    <p>The Zero Trust model assumes that threats exist both inside and outside the network, requiring verification for every person and device trying to access resources.</p>
+                    
+                    <h3>Quantum Computing Threats</h3>
+                    <p>Quantum computers could eventually break current encryption methods, driving the need for quantum-resistant cryptographic algorithms.</p>
+                    
+                    <h3>IoT Security Challenges</h3>
+                    <p>The proliferation of Internet of Things devices creates new attack surfaces that require specialized security approaches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CyberSecure</h3>
+                    <p>Your trusted resource for understanding and implementing cybersecurity best practices in an increasingly digital world.</p>
+                    
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#threats">Cyber Threats</a></li>
+                        <li><a href="#protection">Protection</a></li>
+                        <li><a href="#best-practices">Best Practices</a></li>
+                        <li><a href="#future">Future Trends</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            <div class="copyright">
+                <p>&copy; 2020-2025 incognito. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Threat Level Indicator
+        document.addEventListener('DOMContentLoaded', function() {
+            const threatLevels = document.querySelectorAll('.threat-level');
+            const threatInfos = document.querySelectorAll('.threat-info');
+            
+            threatLevels.forEach(level => {
+                level.addEventListener('click', function() {
+                    const levelType = this.getAttribute('data-level');
+                    
+                    // Remove active class from all levels
+                    threatLevels.forEach(l => l.classList.remove('active'));
+                    // Add active class to clicked level
+                    this.classList.add('active');
+                    
+                    // Hide all info panels
+                    threatInfos.forEach(info => info.classList.remove('active'));
+                    // Show corresponding info panel
+                    document.getElementById(`${levelType}-info`).classList.add('active');
+                });
+            });
+            
+            // Set medium as default active
+            document.querySelector('.threat-level.medium').click();
+            
+            // Password Strength Checker
+            const passwordInput = document.getElementById('passwordInput');
+            const checkPasswordBtn = document.getElementById('checkPassword');
+            const strengthBar = document.getElementById('strengthBar');
+            const strengthFeedback = document.getElementById('strengthFeedback');
+            
+            function checkPasswordStrength(password) {
+                let strength = 0;
+                let feedback = "";
+                
+                // Length check
+                if (password.length >= 8) strength += 1;
+                
+                // Contains lowercase
+                if (/[a-z]/.test(password)) strength += 1;
+                
+                // Contains uppercase
+                if (/[A-Z]/.test(password)) strength += 1;
+                
+                // Contains numbers
+                if (/[0-9]/.test(password)) strength += 1;
+                
+                // Contains special characters
+                if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+                
+                // Update strength bar and feedback
+                strengthBar.className = 'strength-bar';
+                
+                if (password.length === 0) {
+                    strengthFeedback.textContent = "Enter a password to check its strength";
+                    return;
+                }
+                
+                if (strength <= 1) {
+                    strengthBar.classList.add('strength-weak');
+                    strengthFeedback.textContent = "Very weak password - easily guessable";
+                    strengthFeedback.style.color = "#ef4444";
+                } else if (strength === 2) {
+                    strengthBar.classList.add('strength-weak');
+                    strengthFeedback.textContent = "Weak password - vulnerable to brute force attacks";
+                    strengthFeedback.style.color = "#ef4444";
+                } else if (strength === 3) {
+                    strengthBar.classList.add('strength-medium');
+                    strengthFeedback.textContent = "Medium strength password - could be stronger";
+                    strengthFeedback.style.color = "#f59e0b";
+                } else if (strength === 4) {
+                    strengthBar.classList.add('strength-strong');
+                    strengthFeedback.textContent = "Strong password - provides good protection";
+                    strengthFeedback.style.color = "#10b981";
+                } else {
+                    strengthBar.classList.add('strength-very-strong');
+                    strengthFeedback.textContent = "Very strong password - excellent protection";
+                    strengthFeedback.style.color = "#3b82f6";
+                }
+            }
+            
+            checkPasswordBtn.addEventListener('click', function() {
+                checkPasswordStrength(passwordInput.value);
+            });
+            
+            passwordInput.addEventListener('keyup', function() {
+                checkPasswordStrength(passwordInput.value);
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('.article-nav a, .btn').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#' || !targetId.startsWith('#')) return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

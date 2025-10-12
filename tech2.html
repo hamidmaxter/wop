@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | AI: The New Frontier of Intelligence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        :root {
+            --primary: #4CAF50;
+            --secondary: #388E3C;
+            --accent: #FF9800;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gradient: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+        }
+
+        body {
+            background-color: #0f0f23;
+            color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), 
+                        url('ai2.jpeg');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #a5d6a7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .header-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .article-nav {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .article-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .article-nav li {
+            margin: 0 1rem;
+        }
+
+        .article-nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .article-nav a:hover {
+            color: var(--primary);
+        }
+
+        .article-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        .article-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Article Sections */
+        .article-section {
+            padding: 5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .text-content {
+            padding-right: 1rem;
+        }
+
+        .text-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .text-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .image-content {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .image-content:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .image-content:hover .image-caption {
+            opacity: 1;
+        }
+
+        /* Interactive AI Timeline */
+        .interactive-timeline {
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-container {
+            width: 100%;
+            height: 300px;
+            background: rgba(10, 10, 20, 0.8);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-event {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .timeline-event:hover {
+            transform: scale(1.2);
+            background: var(--accent);
+        }
+
+        .timeline-line {
+            position: absolute;
+            height: 3px;
+            background: rgba(76, 175, 80, 0.5);
+            transform-origin: 0 0;
+            z-index: 5;
+        }
+
+        .timeline-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .comparison-table th {
+            background: rgba(76, 175, 80, 0.2);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* AI Types */
+        .ai-types {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .ai-types::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--gradient);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .ai-type-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .ai-type-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .ai-type-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .ai-type-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--dark);
+            border-radius: 50%;
+            top: 15px;
+            right: -10px;
+            z-index: 1;
+        }
+
+        .ai-type-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .ai-type-content {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .ai-type-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .ai-type-content p {
+            font-size: 0.9rem;
+        }
+
+        /* Applications Grid */
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .application-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .application-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .app-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .app-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .application-card:hover .app-image img {
+            transform: scale(1.1);
+        }
+
+        .app-content {
+            padding: 1.5rem;
+        }
+
+        .app-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)), 
+                        url('tech-6b.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .article-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .article-nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .ai-types::after {
+                left: 31px;
+            }
+            
+            .ai-type-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .ai-type-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .ai-type-item::after {
+                left: 21px;
+            }
+            
+            .ai-type-item:nth-child(even)::after {
+                left: 21px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>AI: The New Frontier of Intelligence</h1>
+                <p>Exploring the past, present, and future of artificial intelligence and its transformative impact on our world.</p>
+            </div>
+        </div>
+    </header>
+
+   
+    <!-- Introduction Section -->
+    <section id="intro" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What is Artificial Intelligence?</h2>
+                <p>Understanding the fundamentals of AI</p>
+            </div>
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>The Science of Intelligent Machines</h3>
+                    <p>Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think, learn, and problem-solve like humans. These systems can perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation.</p>
+                    <p>The ultimate goal of AI research is to create systems that can reason, plan, learn, and communicate in ways that equal or exceed human capabilities. While we're still far from achieving artificial general intelligence (AGI), today's AI systems are already transforming industries and daily life.</p>
+                    <p>AI is not a single technology but rather a collection of technologies and approaches that enable machines to sense, comprehend, act, and learn with human-like levels of intelligence.</p>
+                </div>
+                <div class="image-content">
+                    <img src="ai4.jpg" alt="AI Concept Visualization">
+                    <div class="image-caption">Conceptual visualization of artificial intelligence and machine learning</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="article-section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2>History of Artificial Intelligence</h2>
+                <p>The journey from concept to reality</p>
+            </div>
+            
+            <div class="interactive-timeline">
+                <div class="timeline-container" id="timelineContainer">
+                    <!-- Timeline events will be added by JavaScript -->
+                </div>
+                <div class="timeline-info" id="timelineInfo">
+                    <h4>AI History</h4>
+                    <p>Click on a timeline event to learn more about key moments in AI history.</p>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>The Birth of AI</h3>
+                    <p>The concept of artificial beings with intelligence dates back to ancient times, but the modern field of AI research was born in 1956 at the Dartmouth Conference, where the term "artificial intelligence" was coined.</p>
+                    <p>Early AI research focused on problem-solving and symbolic methods. In the 1960s, the US Department of Defense took interest in this type of work and began training computers to mimic basic human reasoning.</p>
+                    <p>The 1970s and 1980s saw both enthusiasm and skepticism, with periods known as "AI winters" when funding and interest in the field declined due to unmet expectations.</p>
+                </div>
+                <div class="image-content">
+                    <img src="co1.jpg" alt="Early Computer">
+                    <div class="image-caption">Early computers that laid the foundation for AI research</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of AI Section -->
+    <section id="types" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Types of Artificial Intelligence</h2>
+                <p>Classifying AI based on capabilities and functionalities</p>
+            </div>
+            
+            <div class="ai-types">
+                <div class="ai-type-item">
+                    <div class="ai-type-content">
+                        <h3>Narrow AI (Weak AI)</h3>
+                        <p>AI designed and trained for a particular task. Virtual assistants like Siri and Alexa are examples of Narrow AI. This is the only form of AI that exists today.</p>
+                    </div>
+                </div>
+                <div class="ai-type-item">
+                    <div class="ai-type-content">
+                        <h3>General AI (Strong AI)</h3>
+                        <p>AI that can understand, learn, and apply its intelligence to solve any problem, much like a human being. This type of AI does not yet exist.</p>
+                    </div>
+                </div>
+                <div class="ai-type-item">
+                    <div class="ai-type-content">
+                        <h3>Superintelligent AI</h3>
+                        <p>Hypothetical AI that would surpass human intelligence and cognitive ability in virtually all domains of interest. This remains a topic of speculation and research.</p>
+                    </div>
+                </div>
+                <div class="ai-type-item">
+                    <div class="ai-type-content">
+                        <h3>Reactive Machines</h3>
+                        <p>The most basic type of AI that cannot form memories or use past experiences to inform current decisions. IBM's Deep Blue is an example.</p>
+                    </div>
+                </div>
+                <div class="ai-type-item">
+                    <div class="ai-type-content">
+                        <h3>Limited Memory AI</h3>
+                        <p>AI that can look into the past to inform future decisions. Most contemporary AI applications, including self-driving cars, fall into this category.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>AI Type</th>
+                        <th>Capabilities</th>
+                        <th>Examples</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Narrow AI</td>
+                        <td>Single task performance</td>
+                        <td>Siri, Alexa, Google Assistant</td>
+                        <td>Currently exists</td>
+                    </tr>
+                    <tr>
+                        <td>General AI</td>
+                        <td>Human-like reasoning across domains</td>
+                        <td>None yet</td>
+                        <td>Theoretical</td>
+                    </tr>
+                    <tr>
+                        <td>Superintelligent AI</td>
+                        <td>Surpasses human intelligence</td>
+                        <td>None yet</td>
+                        <td>Hypothetical</td>
+                    </tr>
+                    <tr>
+                        <td>Reactive Machines</td>
+                        <td>Responds to current scenarios only</td>
+                        <td>IBM's Deep Blue</td>
+                        <td>Exists in limited forms</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="article-section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Artificial Intelligence Works</h2>
+                <p>The technologies and approaches behind AI systems</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="image-content">
+                    <img src="ma1.jpeg" alt="Machine Learning Process">
+                    <div class="image-caption">The machine learning process: data in, patterns out</div>
+                </div>
+                <div class="text-content">
+                    <h3>Machine Learning</h3>
+                    <p>Machine learning is a subset of AI that enables systems to learn and improve from experience without being explicitly programmed. It focuses on the development of computer programs that can access data and use it to learn for themselves.</p>
+                    <p>The process of learning begins with observations or data, such as examples, direct experience, or instruction, in order to look for patterns in data and make better decisions in the future based on the examples that we provide.</p>
+                    
+                    <h3>Deep Learning</h3>
+                    <p>Deep learning is a subset of machine learning that uses neural networks with many layers (hence "deep"). These neural networks attempt to simulate the behavior of the human brain—albeit far from matching its ability—allowing it to "learn" from large amounts of data.</p>
+                    <p>While a neural network with a single layer can still make approximate predictions, additional hidden layers can help optimize and refine for accuracy.</p>
+                </div>
+            </div>
+            
+            <div class="content-grid" style="margin-top: 3rem;">
+                <div class="text-content">
+                    <h3>Natural Language Processing</h3>
+                    <p>NLP is a branch of AI that helps computers understand, interpret, and manipulate human language. NLP draws from many disciplines, including computer science and computational linguistics, in its pursuit to fill the gap between human communication and computer understanding.</p>
+                    <p>Applications of NLP include speech recognition, sentiment analysis, automatic summarization, and machine translation.</p>
+                    
+                    <h3>Computer Vision</h3>
+                    <p>Computer vision is a field of AI that trains computers to interpret and understand the visual world. Using digital images from cameras and videos and deep learning models, machines can accurately identify and classify objects—and then react to what they "see."</p>
+                    <p>Applications range from medical image analysis to self-driving cars and industrial quality control.</p>
+                </div>
+                <div class="image-content">
+                    <img src="co2.jpg" alt="Computer Vision">
+                    <div class="image-caption">Computer vision enables machines to interpret visual information</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="article-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Applications</h2>
+                <p>How AI is transforming industries and daily life</p>
+            </div>
+            
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="h1.jpg" alt="Healthcare AI">
+                    </div>
+                    <div class="app-content">
+                        <h3>Healthcare</h3>
+                        <p>AI is revolutionizing healthcare with applications in disease diagnosis, drug discovery, personalized treatment plans, and robotic surgery.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="v1.jpg" alt="Autonomous Vehicles">
+                    </div>
+                    <div class="app-content">
+                        <h3>Autonomous Vehicles</h3>
+                        <p>Self-driving cars use AI to perceive their environment, make decisions, and navigate without human intervention.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="f1.jpeg" alt="Finance AI">
+                    </div>
+                    <div class="app-content">
+                        <h3>Finance</h3>
+                        <p>AI powers algorithmic trading, fraud detection, credit scoring, and personalized financial advice in the banking and finance sectors.</p>
+                    </div>
+                </div>
+                
+                <div class="application-card">
+                    <div class="app-image">
+                        <img src="r1.jpg" alt="Retail AI">
+                    </div>
+                    <div class="app-content">
+                        <h3>Retail</h3>
+                        <p>From personalized recommendations to inventory management and customer service chatbots, AI is transforming the retail experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future" class="article-section" style="background: rgba(26, 26, 46, 0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Future of AI</h2>
+                <p>Where is artificial intelligence heading?</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="text-content">
+                    <h3>Artificial General Intelligence</h3>
+                    <p>The pursuit of AGI—AI with human-like reasoning abilities across diverse domains—remains the holy grail of AI research. While timelines vary, many experts believe we could see significant progress toward AGI in the coming decades.</p>
+                    
+                    <h3>AI Ethics and Governance</h3>
+                    <p>As AI becomes more powerful, questions of ethics, bias, transparency, and control become increasingly important. Developing frameworks for responsible AI development and deployment will be crucial.</p>
+                    
+                    <h3>Human-AI Collaboration</h3>
+                    <p>Rather than replacing humans, future AI systems are likely to augment human capabilities, creating new forms of collaboration where humans and machines work together to solve complex problems.</p>
+                    
+                    <h3>AI in Scientific Discovery</h3>
+                    <p>AI is poised to accelerate scientific discovery in fields from medicine to materials science, helping researchers analyze complex data and generate novel hypotheses.</p>
+                </div>
+                <div class="image-content">
+                    <img src="f2.jpg" alt="Future of AI">
+                    <div class="image-caption">Conceptual visualization of future AI applications and human-AI interaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>AI Insights</h3>
+                    <p>Exploring the fascinating world of artificial intelligence and its impact on society.</p>
+                    
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#history">History</a></li>
+                        <li><a href="#types">Types of AI</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#applications">Applications</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            <div class="copyright">
+                <p>&copy; 2020-2025 incognito. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive Timeline
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('timelineContainer');
+            const info = document.getElementById('timelineInfo');
+            
+            // Create timeline events
+            const events = [
+                { year: "1950", title: "Turing Test", description: "Alan Turing proposes the Turing Test as a measure of machine intelligence." },
+                { year: "1956", title: "AI Born", description: "The term 'Artificial Intelligence' is coined at the Dartmouth Conference." },
+                { year: "1997", title: "Deep Blue", description: "IBM's Deep Blue defeats world chess champion Garry Kasparov." },
+                { year: "2011", title: "Watson", description: "IBM's Watson wins Jeopardy! against former champions." },
+                { year: "2016", title: "AlphaGo", description: "Google's AlphaGo defeats world champion Lee Sedol in Go." },
+                { year: "2020", title: "GPT-3", description: "OpenAI releases GPT-3, a powerful language model with 175 billion parameters." }
+            ];
+            
+            const width = container.offsetWidth;
+            const height = container.offsetHeight;
+            const eventWidth = 100;
+            const spacing = (width - (events.length * eventWidth)) / (events.length + 1);
+            
+            // Create events
+            events.forEach((event, index) => {
+                const x = spacing + (spacing + eventWidth) * index;
+                const y = height / 2 - 60;
+                
+                const eventElement = document.createElement('div');
+                eventElement.className = 'timeline-event';
+                eventElement.style.left = `${x}px`;
+                eventElement.style.top = `${y}px`;
+                eventElement.innerHTML = `<div>${event.year}</div><div>${event.title}</div>`;
+                
+                eventElement.addEventListener('click', function() {
+                    info.innerHTML = `
+                        <h4>${event.year}: ${event.title}</h4>
+                        <p>${event.description}</p>
+                    `;
+                    info.style.display = 'block';
+                });
+                
+                container.appendChild(eventElement);
+                
+                // Create timeline connector
+                if (index < events.length - 1) {
+                    const nextX = spacing + (spacing + eventWidth) * (index + 1);
+                    const lineLength = nextX - x - eventWidth;
+                    const line = document.createElement('div');
+                    line.className = 'timeline-line';
+                    line.style.width = `${lineLength}px`;
+                    line.style.left = `${x + eventWidth}px`;
+                    line.style.top = `${y + 60}px`;
+                    container.appendChild(line);
+                }
+            });
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('.article-nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

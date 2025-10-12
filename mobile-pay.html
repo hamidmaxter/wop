@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | Tanzania Mobile Money Transfer Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            padding: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-header i {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+        .ussd-code{
+            color: black;
+        }
+        
+        .mpesa { background: linear-gradient(to right, #FFC107, #FF9800); }
+        .airtel { background: linear-gradient(to right, #E91E63, #9C27B0); }
+        .tigo { background: linear-gradient(to right, #4CAF50, #2E7D32); }
+        .halotel { background: linear-gradient(to right, #2196F3, #0D47A1); }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: #f5f5f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h4 {
+            margin-bottom: 5px;
+            color: #444;
+        }
+        
+        .notes {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .notes h2 {
+            color: #1a2a6c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .note-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .note-item i {
+            color: #FF9800;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        .network-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .ussd-code {
+            background: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-mobile-alt"></i> Mobile Money Transfer <span style="display: block; font-style: italic;">(for Tanzania only)
+            </span></h1>
+            <p>Step-by-step guide to send money to Vodacom (M-Pesa) numbers from different mobile networks</p>
+        </header>
+        
+        <div class="card-container">
+            <!-- Airtel Money Card -->
+            <div class="card">
+                <div class="card-header airtel">
+                    <i class="fas fa-signal"></i>
+                    <div>
+                        <h2 class="network-title">Airtel Money</h2>
+                        <div class="ussd-code">*150*60#</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Dial USSD Code</h4>
+                            <p>Dial <strong>*150*60#</strong> on your Airtel line</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Select Send Money</h4>
+                            <p>Choose "Send Money" from the menu options</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Select Other Networks</h4>
+                            <p>Select "Other Networks" as the recipient network</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Enter Vodacom Number</h4>
+                            <p>Enter the Vodacom (M-Pesa) (0749246701)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Enter Amount</h4>
+                            <p>Input the amount you want to send</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Confirm Transaction</h4>
+                            <p>Enter your Airtel Money PIN to complete the transaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tigo Pesa Card -->
+            <div class="card">
+                <div class="card-header tigo">
+                    <i class="fas fa-sim-card"></i>
+                    <div>
+                        <h2 class="network-title">Tigo Pesa</h2>
+                        <div class="ussd-code">*150*01#</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Dial USSD Code</h4>
+                            <p>Dial <strong>*150*01#</strong> on your Tigo line</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Select Send Money</h4>
+                            <p>Choose "Send Money" from the menu options</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Select Other Networks</h4>
+                            <p>Select "Other Networks" as the recipient network</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Enter Vodacom Number</h4>
+                            <p>Enter the Vodacom (M-Pesa) (0749246701)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Enter Amount</h4>
+                            <p>Input the amount you want to send</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Confirm Transaction</h4>
+                            <p>Enter your Tigo Pesa PIN to complete the transaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Halopesa Card -->
+            <div class="card">
+                <div class="card-header halotel">
+                    <i class="fas fa-wifi"></i>
+                    <div>
+                        <h2 class="network-title">Halopesa</h2>
+                        <div class="ussd-code">*150*88#</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Dial USSD Code</h4>
+                            <p>Dial <strong>*150*88#</strong> on your Halotel line</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Select Send Money</h4>
+                            <p>Choose "Send Money" from the menu options</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Select Other Networks</h4>
+                            <p>Select "Other Networks" as the recipient network</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Enter Vodacom Number</h4>
+                            <p>Enter the Vodacom (M-Pesa) (0749246701)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Enter Amount</h4>
+                            <p>Input the amount you want to send</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Confirm Transaction</h4>
+                            <p>Enter your Halopesa PIN to complete the transaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="notes">
+            <h2><i class="fas fa-exclamation-circle"></i> Important Notes</h2>
+            
+            <div class="note-item">
+                <i class="fas fa-money-bill-wave"></i>
+                <div>
+                    <h4>Transaction Fees</h4>
+                    <p>Cross-network transfers usually have higher fees than same-network transfers. Check with your provider for current rates.</p>
+                </div>
+            </div>
+            
+            <div class="note-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>Security</h4>
+                    <p>Never share your mobile money PIN with anyone. Always verify the recipient's number before sending money.</p>
+                </div>
+            </div>
+            
+            <div class="note-item">
+                <i class="fas fa-sms"></i>
+                <div>
+                    <h4>Confirmation</h4>
+                    <p>Always wait for the SMS confirmation message before considering a transaction complete. Save this message as proof of payment.</p>
+                </div>
+            </div>
+            
+            <div class="note-item">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h4>Number Format</h4>
+                    <p>Ensure you enter the recipient's number in the correct format (07XX XXX XXX). The recipient must be registered with M-Pesa.</p>
+                </div>
+            </div>
+            
+            <div class="note-item">
+                <i class="fas fa-stopwatch"></i>
+                <div>
+                    <h4>Processing Time</h4>
+                    <p>Cross-network transfers may take a few minutes to process. If the money doesn't arrive within 30 minutes, contact your provider.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2020-2025 incognito. All rights Reserved</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaxterHub | Gaming - Discover & Download Amazing Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('gaming-background.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(15, 15, 26, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ff00cc;
+            text-shadow: 0 0 10px rgba(255, 0, 204, 0.7);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a i {
+            margin-right: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: #ff00cc;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff00cc, #3333ff);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #ff00cc;
+            color: #ff00cc;
+        }
+        
+        .btn-outline:hover {
+            background: #ff00cc;
+            color: white;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            color: #ff00cc;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .game-card {
+            background: rgba(26, 26, 46, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .game-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .game-content {
+            padding: 20px;
+        }
+        
+        .game-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ff00cc;
+        }
+        
+        .game-desc {
+            margin-bottom: 20px;
+            color: #cccccc;
+        }
+        
+        .lists-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .list {
+            background: rgba(26, 26, 46, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+        
+        .list-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #3333ff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .list-title i {
+            margin-right: 10px;
+        }
+        
+        .list-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .list-item::before {
+            content: "•";
+            color: #ff00cc;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+        }
+        
+        .list-item a {
+            color: #f0f0f0;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .list-item a i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        
+        .list-item a:hover {
+            color: #ff00cc;
+        }
+        
+        footer {
+            background: rgba(10, 10, 20, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 40px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #f0f0f0;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ff00cc;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .lists-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Maxterhub_gaming</div>
+                
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Discover Your Next Favorite Game</h1>
+            <p>Explore our curated selection of incredible games, find your next adventure, and download directly from official sources.</p>
+            <div class="hero-buttons">
+                <a href="#recommended" class="btn"><i class="fas fa-search"></i>Explore Games</a>
+                <a href="#sites" class="btn btn-outline"><i class="fas fa-download"></i>Download Sites</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="recommended">
+        <div class="container">
+            <h2 class="section-title">Top PC Games 2025</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <img src="warframe.webp" alt="warframe" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">Warframe</h3>
+                        <p class="game-desc">A free-to-play sci-fi game where you're a space ninja. You use powerful 
+                            exo-suits to parkour through levels, fight hordes of enemies, and collect loot with friends.</p>
+                        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.warframe.com/download&ved=2ahUKEwjFnauoyeWPAxWX7AIHHZOfAC4QFnoECCQQAQ&usg=AOvVaw1DDp6jo87yNP6QWq0mu2sg" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <img src="elden-ring.jpg" alt="The Witcher 3" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">Elden Ring (paid)</h3>
+                        <p class="game-desc"> THE CRITICALLY ACCLAIMED FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace 
+                            to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.</p>
+                        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://store.steampowered.com/app/1245620/ELDEN_RING/&ved=2ahUKEwi_sKqBy-WPAxX1zckDHRMLBfIQFnoECCAQAQ&usg=AOvVaw1gqgdN1K83HOnHZ6DyCKMv" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <img src="got2.jpg" alt="Game of thrones" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">Game of thrones : kingsroad</h3>
+                        <p class="game-desc">Game of Thrones is an epic fantasy 
+                            drama set in the Seven Kingdoms of Westeros, where noble families 
+                            fight for the Iron Throne. It blends political intrigue, war,
+                             and ancient prophecies with dragons and dark magic.</p>
+                        <a href="https://store.epicgames.com/en-US/p/game-of-thrones-kingsroad-e19c7c" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <img src="craft.jpg" alt="Minecraft" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">Minecraft</h3>
+                        <p class="game-desc">A sandbox adventure game where players create and break apart various kinds of blocks in three-dimensional worlds.</p>
+                        <a href="https://www.microsoft.com/en-tz/p/minecraft-launcher/9pgw18npbzv5" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recommended">
+        <div class="container">
+            <h2 class="section-title">Top mobile Games 2025</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <img src="honkai.jpg" alt="Honkai : Star Rail" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">Honkai : Star Rail</h3>
+                        <p class="game-desc">The turn-based sci-fi epic from HoYoverse (creators of Genshin Impact) continues to set the standard for production quality and deep, 
+                            gacha-based RPGs on mobile, with a consistent stream of major updates.</p>
+                        <a href="https://hsr.hoyoverse.com/en-us/" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <img src="monopoly2.jpg" alt="MONOPOLY GO!" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">MONOPOLY GO!</h3>
+                        <p class="game-desc"> This smash-hit social phenomenon combines the classic board game with chaotic, city-building fun and player-vs-player interaction, 
+                            making it a staple for casual and competitive players alike.</p>
+                        <a href="https://www.monopolygo.com/" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <img src="pubg.jpg" alt="PUBG Mobile" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">PUBG Mobile</h3>
+                        <p class="game-desc">Still the king of mobile battle royale. With constant map updates, collaborations, 
+                            and esports events, it remains one of the most played and watched games globally.</p>
+                        <a href="https://www.pubgmobile.com/en-US/home.shtml" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <img src="roblox.jpg" alt="ROBLOX" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">Roblox</h3>
+                        <p class="game-desc">A vast online platform where players can explore millions 
+                            of user-created games and social experiences, making it a digital universe of endless possibilities.</p>
+                        <a href="https://www.roblox.com/" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <img src="candy.jpg" alt="candy" class="game-img">
+                    <div class="game-content">
+                        <h3 class="game-title">Candy Crush Saga</h3>
+                        <p class="game-desc">Candy Crush Saga is a massively popular match-3 puzzle game where you swap colorful candies to complete levels. 
+                            Its simple but addictive gameplay has made it a mobile gaming icon for over a decade.</p>
+                        <a href="https://www.king.com/game/candycrush/" class="btn" target="_blank"><i class="fas fa-download"></i>Download Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="must-play">
+        <div class="container">
+            <h2 class="section-title">Must-Play Games</h2>
+            <div class="lists-container">
+                <div class="list">
+                    <h3 class="list-title"><i class="fas fa-laptop"></i>For PC</h3>
+                    <div class="list-item"><a href="https://www.rockstargames.com/reddeadredemption2/" target="_blank"><i class="fas fa-gamepad"></i>Red Dead Redemption 2</a></div>
+                    <div class="list-item"><a href="https://www.playstation.com/en-us/god-of-war/" target="_blank"><i class="fas fa-gamepad"></i>God of War (2018)</a></div>
+                    <div class="list-item"><a href="https://divinity.game/" target="_blank"><i class="fas fa-dice-d20"></i>Divinity: Original Sin 2</a></div>
+                    <div class="list-item"><a href="https://www.ubisoft.com/en-us/game/assassins-creed/valhalla" target="_blank"><i class="fas fa-gamepad"></i>Assassin's Creed Valhalla</a></div>
+                    <div class="list-item"><a href="https://www.dragonage.com/en-US/home" target="_blank"><i class="fas fa-dragon"></i>Dragon Age: Inquisition</a></div>
+                    <div class="list-item"><a href="https://www.ea.com/games/starwars/jedi/jedi-fallen-order" target="_blank"><i class="fas fa-jedi"></i>Star Wars Jedi: Fallen Order</a></div>
+                    <div class="list-item"><a href="https://www.hollowknight.com/" target="_blank"><i class="fas fa-crown"></i>Hollow Knight</a></div>
+                    <div class="list-item"><a href="https://www.hadesgame.com/" target="_blank"><i class="fas fa-fire"></i>Hades</a></div>
+                    <div class="list-item"><a href="https://www.stardewvalley.net/" target="_blank"><i class="fas fa-tree"></i>Stardew Valley</a></div>
+                    <div class="list-item"><a href="https://www.celestegame.com/" target="_blank"><i class="fas fa-mountain"></i>Celeste</a></div>
+                </div>
+                
+                
+                
+                <div class="list">
+                    <h3 class="list-title"><i class="fas fa-mobile-phone"></i>On Mobile</h3>
+                    <div class="list-item"><a href="https://www.gameloft.com/game/asphalt-8" target="_blank"><i class="fas fa-fire"></i>Asphalt-8</a></div>
+                    <div class="list-item"><a href="https://block-blast.io/" target="_blank"><i class="fas fa-fire"></i>Block Blast!</a></div>
+                    <div class="list-item"><a href="https://www.lastwar.com/en/home.html?1756893687970" target="_blank"><i class="fas fa-fire"></i>Last war : survival game</a></div>
+                    <div class="list-item"><a href="https://subwaysurfers.com/" target="_blank"><i class="fas fa-fire"></i>Subway Surfers</a></div>
+                    <div class="list-item"><a href="https://www.konami.com/efootball/en/page/download_edition_list" target="_blank"><i class="fas fa-fire"></i>efootball</a></div>
+                    <div class="list-item"><a href="https://www.callofduty.com/mobile" target="_blank"><i class="fas fa-fire"></i>Call of Duty Mobile</a></div>
+                    <div class="list-item"><a href="https://www.ftgames.com/games#games-dls" target="_blank"><i class="fas fa-fire"></i>Dream League Soccer</a></div>
+                    <div class="list-item"><a href="https://www.vectorunit.com/beach-buggy-racing-2" target="_blank"><i class="fas fa-fire"></i>Beach Buggy Racing 2</a></div>
+                    <div class="list-item"><a href="https://www.dreamgames.com/games" target="_blank"><i class="fas fa-fire"></i>Royal Match</a></div>
+                    <div class="list-item"><a href="https://pokemongo.com/" target="_blank"><i class="fas fa-fire"></i>Pokemon GO</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sites">
+        <div class="container">
+            <h2 class="section-title">Best Game Download Sites</h2>
+            <div class="lists-container">
+                <div class="list">
+                    <h3 class="list-title"><i class="fas fa-store"></i>Official Stores</h3>
+                    <div class="list-item"><a href="https://store.steampowered.com/" target="_blank"><i class="fab fa-steam"></i>Steam</a> - The largest digital distribution platform for PC gaming</div>
+                    <div class="list-item"><a href="https://www.epicgames.com/store/en-US/" target="_blank"><i class="fas fa-crown"></i>Epic Games Store</a> - Featuring free games weekly</div>
+                    <div class="list-item"><a href="https://www.gog.com/" target="_blank"><i class="fas fa-gamepad"></i>GOG</a> - DRM-free games and classics</div>
+                    <div class="list-item"><a href="https://www.origin.com/" target="_blank"><i class="fab fa-origin"></i>Origin</a> - EA's gaming platform</div>
+                </div>
+                
+                <div class="list">
+                    <h3 class="list-title"><i class="fas fa-globe"></i>Other Platforms</h3>
+                    <div class="list-item"><a href="https://itch.io/" target="_blank"><i class="fas fa-puzzle-piece"></i>itch.io</a> - Indie game platform</div>
+                    <div class="list-item"><a href="https://www.humblebundle.com/" target="_blank"><i class="fas fa-gift"></i>Humble Bundle</a> - Game bundles and store</div>
+                    <div class="list-item"><a href="https://www.greenmangaming.com/" target="_blank"><i class="fas fa-shopping-cart"></i>Green Man Gaming</a> - Digital game retailer</div>
+                    <div class="list-item"><a href="https://www.uplay.com/" target="_blank"><i class="fab fa-uplay"></i>Ubisoft Store</a> - Ubisoft's game platform</div>
+                </div>
+                
+                <div class="list">
+                    <h3 class="list-title"><i class="fas fa-globe"></i>Free Games</h3>
+                    <div class="list-item"><a href="https://store.steampowered.com/genre/Free%20to%20Play/" target="_blank"><i class="fab fa-steam"></i>Steam Free to Play</a> - Free games on Steam</div>
+                    <div class="list-item"><a href="https://www.epicgames.com/store/en-US/free-games" target="_blank"><i class="fas fa-crown"></i>Epic Free Games</a> - Free games weekly</div>
+                    <div class="list-item"><a href="https://www.gog.com/partner/free_games" target="_blank"><i class="fas fa-gamepad"></i>GOG Free Games</a> - Free games collection</div>
+                    <div class="list-item"><a href="https://www.origin.com/usa/en-us/store/free-games" target="_blank"><i class="fab fa-origin"></i>Origin Free Games</a> - EA's free games</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="about">
+        <div class="container">
+            <p>This site is a curated directory of games and trusted download sources. We are not affiliated with any game developers or distributors.</p>
+            <p>All trademarks are property of their respective owners.</p>
+            <div class="social-links">
+                <a href="https://www.x.com/incognito_xr"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/greatabdul"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/xr_incognito"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/255749246701?text=Hello"><i class="fab fa-whatsapp"></i></a>
+                
+            </div>
+            <div class="copyright" style="margin: 10px;">
+                &copy; 2020-2025 incognito. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
